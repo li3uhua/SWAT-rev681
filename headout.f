@@ -168,20 +168,20 @@
 !! Jaehak subdaily bmp output header
 !bmp-sedfil.out
       write(77778,'(a21)') 'SED-FIL Basins output'                      
-      write(77778,'(a170)') '------------------------------   ----------
-     &------------ Sedimentation Pond --------------------------   -----
-     &----------------------- Sand Filter ------------------------------
-     &----------------' 
+      write(77778,'(a200)') '------------------------------   ----------
+     &---------------- Sedimentation Pond ------------------------------
+     &-----   ----------------------------------- Sand Filter ----------
+     &-----------------------' 
       write(77778,'(5a6,30a12)') 'year', 'day','time','sub','SFnum',
-     & 'inflw(m3)','outflw(m3)','bypass(m3)','sedin(kg)','sedout(kg)',
-     & 'sbypass(kg)','inflw(m3)','outflw(m3)','bypass(m3)',
+     & 'inflw(m3)','outflw(m3)','bypass(m3)','recharg(m3)','sedin(kg)',
+     & 'sedout(kg)','sbypass(kg)','inflw(m3)','outflw(m3)','bypass(m3)',
      & 'recharg(m3)','sedin(kg)','sedout(kg)','sbypass(kg)'
 
 !bmp-ri.out
       write(77779,'(a21)') 'Retention-Irrigation output'                
       write(77779,'(5a6,30a12)') 'year', 'day','time','sub','RInum',
-     & 'inflw(m3)','qbypass(m3)','pmpflw(m3)','sedin(kg)','sbypass(kg)',
-     & 'pmpsed(kg)'
+     & 'inflw(m3)','qbypass(m3)','pmpflw(m3)','pmpflw(m3)','sedin(kg)',
+     & 'sbypass(kg)','pmpsed(kg)'
 
       return
  1000 format ('1',/t5,a80,t105,2(i2,'/'),i4,5x,2(i2,':'),i2)
