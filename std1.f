@@ -20,6 +20,7 @@
 !!                               |0 daily rainfall/curve number technique
 !!                               |1 sub-daily rainfall/Green&Ampt/hourly
 !!                               |  routing
+!!                               |3 sub-daily rainfall/Green&Ampt/hourly routing
 !!    igen        |none          |random number generator seed code
 !!    isproj      |none          |special project code:
 !!                               |1 test rewind (run simulation twice)

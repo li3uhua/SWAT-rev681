@@ -41,7 +41,7 @@
 !!                               |1 no vegetative cover on channel
 !!    ch_d(:)       |m           |average depth of main channel
 !!    ch_di(:)      |m           |initial depth of main channel
-!!    ch_eqn        |            |sediment routine methods: 
+!!    ch_eqn        |            |sediment routine methods (DAILY): 
 !!                               | 0 = original SWAT method
 !!                               | 1 = Bagnold's
 !!                               | 2 = Kodatie

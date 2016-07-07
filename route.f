@@ -25,6 +25,7 @@
 !!                               |0 daily rainfall/curve number technique
 !!                               |1 sub-daily rainfall/Green&Ampt/hourly
 !!                               |  routing
+!!                               |3 sub-daily rainfall/Green&Ampt/hourly routing
 !!    inum1       |none          |reach number
 !!    inum2       |none          |inflow hydrograph storage location number
 !!    irte        |none          |water routing method:

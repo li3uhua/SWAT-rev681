@@ -94,7 +94,7 @@
       real :: rch_san, rch_sil, rch_cla, rch_sag, rch_lag, rch_gra
 
 
-!!    delcare mike van liew variables
+!!    declare mike van liew variables
       real :: hlife_ngw_bsn, ch_opco_bsn, ch_onco_bsn
       real :: bc1_bsn, bc2_bsn, bc3_bsn, bc4_bsn, rcn_sub_bsn, decr_min         
       real :: anion_excl_bsn
@@ -138,7 +138,8 @@
       character(len=13) :: slrfile, wndfile, rhfile, petfile, calfile
       character(len=13) :: atmofile, lucfile
       character(len=13) :: septdb
-      character(len=13) :: dpd_file, wpd_file, rib_file, sfb_file
+      character(len=13) :: dpd_file, wpd_file, rib_file, sfb_file,
+     &                     lid_file
       integer, dimension (:), allocatable :: ifirstr, idg, ifirsthr
       integer, dimension (:), allocatable :: values, ndays
       integer, dimension (:), allocatable :: ndays_noleap, ndays_leap
@@ -833,6 +834,45 @@
      
       real :: bio_init, lai_init, cnop,hi_ovr,harveff,frac_harvk
 
+      ! van Genuchten equation's coefficients
+      real, allocatable :: lid_vgcl,lid_vgcm,lid_qsurf_total,
+     & lid_farea_sum
+      
+      ! soil water content and amount of accumulated infiltration
+      real, dimension(:,:), allocatable :: lid_cuminf_last,
+     & lid_sw_last, interval_last,lid_f_last,lid_cumr_last,lid_str_last,
+     & lid_farea,lid_qsurf,lid_sw_add,lid_cumqperc_last,lid_cumirr_last,
+     & lid_excum_last                                                      !! nbs
+      
+      ! Green Roof
+      integer, dimension(:,:), allocatable:: gr_onoff,gr_imo,gr_iyr
+      real, dimension(:,:), allocatable:: gr_farea,gr_solop,gr_etcoef,
+     & gr_fc,gr_wp,gr_ksat,gr_por,gr_hydeff,gr_soldpt,gr_dummy1,
+     & gr_dummy2,gr_dummy3,gr_dummy4,gr_dummy5
+            
+      ! Rain Gerden
+      integer, dimension(:,:), allocatable:: rg_onoff,rg_imo,rg_iyr
+      real, dimension(:,:), allocatable:: rg_farea,rg_solop,rg_etcoef,
+     & rg_fc,rg_wp,rg_ksat,rg_por,rg_hydeff,rg_soldpt,rg_dimop,rg_sarea,
+     & rg_vol,rg_sth,rg_sdia,rg_bdia,rg_sts,rg_orifice,rg_oheight,
+     & rg_odia,rg_dummy1,rg_dummy2,rg_dummy3,rg_dummy4,rg_dummy5
+      
+      ! CiStern
+      integer, dimension(:,:), allocatable:: cs_onoff,cs_imo,cs_iyr,
+     & cs_grcon
+      real, dimension(:,:), allocatable:: cs_farea,cs_vol,cs_rdepth,
+     & cs_dummy1,cs_dummy2,cs_dummy3,cs_dummy4,cs_dummy5
+      
+      ! Porous paVement
+      integer, dimension(:,:), allocatable:: pv_onoff,pv_imo,pv_iyr,
+     & pv_solop
+      real, dimension(:,:), allocatable:: pv_grvdep,pv_grvpor,pv_farea,
+     & pv_drcoef,pv_fc,pv_wp,pv_ksat,pv_por,pv_hydeff,pv_soldpt,
+     & pv_dummy1,pv_dummy2,pv_dummy3,pv_dummy4,pv_dummy5
+      
+      ! LID general
+      integer, dimension(:,:), allocatable:: lid_onoff
+      
 
 !! By Zhang for C/N cycling
       !!SOM-residue C/N state variables -- currently included

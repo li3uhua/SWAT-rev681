@@ -1734,8 +1734,55 @@
      &  wtp_sdc2(mhyd),wtp_sdc3(mhyd),wtp_pdia(mhyd),wtp_plen(mhyd),
      &  wtp_pmann(mhyd),wtp_ploss(mhyd),wtp_k(mhyd),
      &  wtp_dp(mhyd),wtp_sedi(mhyd),wtp_sede(mhyd),wtp_qi(mhyd))
-                 
 
+!!    LID simulations
+!!    Common variable
+!!    van Genuchten equation's coefficients
+      allocate(lid_vgcl,lid_vgcm,lid_qsurf_total,
+     & lid_farea_sum)
+      allocate(lid_cuminf_last(mhru,4),lid_sw_last(mhru,4),
+     & interval_last(mhru,4),lid_f_last(mhru,4),lid_cumr_last(mhru,4),
+     & lid_str_last(mhru,4),lid_farea(mhru,4),lid_qsurf(mhru,4),
+     & lid_sw_add(mhru,4),lid_cumqperc_last(mhru,4),
+     & lid_cumirr_last(mhru,4),lid_excum_last(mhru,4))    !!  nbs
+
+!!    Green Roof
+      allocate(gr_onoff(msub,mudb),gr_imo(msub,mudb),gr_iyr(msub,mudb),
+     & gr_farea(msub,mudb),gr_solop(msub,mudb),gr_etcoef(msub,mudb),
+     & gr_fc(msub,mudb),gr_wp(msub,mudb),gr_ksat(msub,mudb),
+     & gr_por(msub,mudb),gr_hydeff(msub,mudb),gr_soldpt(msub,mudb),
+     & gr_dummy1(msub,mudb),gr_dummy2(msub,mudb),gr_dummy3(msub,mudb),
+     & gr_dummy4(msub,mudb),gr_dummy5(msub,mudb))
+
+!!    Rain Garden
+      allocate(rg_onoff(msub,mudb),rg_imo(msub,mudb),rg_iyr(msub,mudb),
+     & rg_farea(msub,mudb),rg_solop(msub,mudb),rg_etcoef(msub,mudb),
+     & rg_fc(msub,mudb),rg_wp(msub,mudb),rg_ksat(msub,mudb),
+     & rg_por(msub,mudb),rg_hydeff(msub,mudb),rg_soldpt(msub,mudb),
+     & rg_dimop(msub,mudb),rg_sarea(msub,mudb),rg_vol(msub,mudb),
+     & rg_sth(msub,mudb),rg_sdia(msub,mudb),rg_bdia(msub,mudb),
+     & rg_sts(msub,mudb),rg_orifice(msub,mudb),rg_oheight(msub,mudb),
+     & rg_odia(msub,mudb),rg_dummy1(msub,mudb),rg_dummy2(msub,mudb),
+     & rg_dummy3(msub,mudb),rg_dummy4(msub,mudb),rg_dummy5(msub,mudb))
+      
+!!    CiStern
+      allocate(cs_onoff(msub,mudb),cs_imo(msub,mudb),cs_iyr(msub,mudb),
+     & cs_grcon(msub,mudb),cs_farea(msub,mudb),cs_vol(msub,mudb),
+     & cs_rdepth(msub,mudb),cs_dummy1(msub,mudb),cs_dummy2(msub,mudb),
+     & cs_dummy3(msub,mudb),cs_dummy4(msub,mudb),cs_dummy5(msub,mudb))
+
+!!    Poropus paVement
+      allocate(pv_onoff(msub,mudb),pv_imo(msub,mudb),pv_iyr(msub,mudb),
+     & pv_grvdep(msub,mudb),pv_grvpor(msub,mudb),pv_farea(msub,mudb),
+     & pv_solop(msub,mudb),pv_drcoef(msub,mudb),pv_fc(msub,mudb),
+     & pv_wp(msub,mudb),pv_ksat(msub,mudb),pv_por(msub,mudb),
+     & pv_hydeff(msub,mudb),pv_soldpt(msub,mudb),pv_dummy1(msub,mudb),
+     & pv_dummy2(msub,mudb),pv_dummy3(msub,mudb),pv_dummy4(msub,mudb),
+     & pv_dummy5(msub,mudb))
+      
+!!    LID general
+      allocate(lid_onoff(msub,mudb))
+      
       !! By Zhang for C/N cycling
       !! ============================
 	!allocate(sol_PH(mlyr,mhru))

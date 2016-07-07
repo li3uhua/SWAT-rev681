@@ -32,10 +32,11 @@
 !!    hru_fr(:)     |none          |fraction of watershed area in HRU
 !!    hru_fr(:)     |none          |fraction of subbasin area in HRU
 !!    hru_ha(:)     |ha            |area of HRU in hectares
-!!    ievent        |none          |rainfall/runoff code
-!!                                 |0 daily rainfall/curve number technique
-!!                                 |1 sub-daily rainfall/Green&Ampt/hourly
-!!                                 |  routing
+!!    ievent      |none          |rainfall/runoff code
+!!                               |0 daily rainfall/curve number technique
+!!                               |1 sub-daily rainfall/Green&Ampt/hourly
+!!                               |  routing
+!!                               |3 sub-daily rainfall/Green&Ampt/hourly routing
 !!    ihout         |none          |hydrograph storage location number for 
 !!                                 |subbasin
 !!    ihru          |none          |HRU number
