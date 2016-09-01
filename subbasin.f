@@ -288,7 +288,7 @@
 	!!=================	
 
         call nitvol
-        if (sol_P_model == 0) then
+        if (sol_P_model == 1) then
             call pminrl
         else
             call pminrl2
@@ -346,9 +346,6 @@
 
         !! compute phosphorus movement
         call solp
-
-        !! compute chl-a, CBOD and dissolved oxygen loadings
-        call subwq
 
         !! compute bacteria transport
         call bacteria
@@ -419,6 +416,9 @@
         else
           qdfr = 0.
         end if
+
+        !! compute chl-a, CBOD and dissolved oxygen loadings
+        call subwq
 
         !! compute wetland processes
         call wetlan

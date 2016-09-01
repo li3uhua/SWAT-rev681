@@ -5,6 +5,9 @@
 
       use parm
       
+      lid_sw_add = 0.
+      lid_farea = 0.
+      rg_sarea = 0.
       co_p = .1
       
       ifirstatmo = 1
