@@ -232,8 +232,15 @@
         read (108,*,iostat=eof) psp(ihru)
         if (eof < 0) exit 
         read (108,*,iostat=eof) sdnco(ihru)
+        if (eof < 0) exit
+        read (108,*,iostat=eof) iwetile(ihru)
+        if (eof < 0) exit
+        read (108,*,iostat=eof) iwetgw(ihru)
 	exit
       end do
+      
+      if (iwetile(ihru) <= 0) iwetile(ihru) = 0
+      if (iwetgw(ihru) <= 0) iwetgw(ihru) = 0
 
       if (n_reduc(ihru) <= 0.) n_reduc(ihru) = 300.
       if (n_lag(ihru) <= 0.) n_lag(ihru) = 0.25

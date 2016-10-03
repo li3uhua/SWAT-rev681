@@ -351,65 +351,69 @@
       if (eof < 0) exit
       read (104,5101,iostat=eof) lid_file
       close (104)
+      exit
+      end do
 
       !! Detention pond  -- read from a separate file (.dpd)
       if (dpd_file /= '             ' .and. ievent > 0) then
-      open (104,file=dpd_file)
-      read (104,5100,iostat=eof) titldum
-      if (eof < 0) exit
-      read (104,*,iostat=eof) dtp_onoff(i)
-      if (eof < 0) exit
-      read (104,*,iostat=eof) dtp_imo(i)
-      if (eof < 0) exit
-      read (104,*,iostat=eof) dtp_iyr(i)
-      if (eof < 0) exit
-      read (104,*,iostat=eof) dtp_evrsv(i)
-      if (eof < 0) exit
-      read (104,*,iostat=eof) dtp_numweir(i)
-      if (eof < 0) exit
-      read (104,*,iostat=eof) dtp_numstage(i)
-      if (eof < 0) exit
-      read (104,*,iostat=eof) dtp_lwratio(i)
-      if (eof < 0) exit
-      read (104,*,iostat=eof) dtp_totwrwid(i)
-      if (eof < 0) exit
-      read (104,*,iostat=eof) dtp_stagdis(i)
-      if (eof < 0) exit
-      read (104,*,iostat=eof) dtp_reltype(i)
-      if (eof < 0) exit
-      read (104,*,iostat=eof) dtp_intcept(i)
-      if (eof < 0) exit
-      read (104,*,iostat=eof) dtp_expont(i)
-      if (eof < 0) exit
-      read (104,*,iostat=eof) dtp_coef1(i)
-      if (eof < 0) exit
-      read (104,*,iostat=eof) dtp_coef2(i)
-      if (eof < 0) exit
-      read (104,*,iostat=eof) dtp_coef3(i)
-      if (eof < 0) exit
+        open (104,file=dpd_file)
+        do
+        read (104,5100,iostat=eof) titldum
+        if (eof < 0) exit
+        read (104,*,iostat=eof) dtp_onoff(i)
+        if (eof < 0) exit
+        read (104,*,iostat=eof) dtp_imo(i)
+        if (eof < 0) exit
+        read (104,*,iostat=eof) dtp_iyr(i)
+        if (eof < 0) exit
+        read (104,*,iostat=eof) dtp_evrsv(i)
+        if (eof < 0) exit
+        read (104,*,iostat=eof) dtp_numweir(i)
+        if (eof < 0) exit
+        read (104,*,iostat=eof) dtp_numstage(i)
+        if (eof < 0) exit
+        read (104,*,iostat=eof) dtp_lwratio(i)
+        if (eof < 0) exit
+        read (104,*,iostat=eof) dtp_totwrwid(i)
+        if (eof < 0) exit
+        read (104,*,iostat=eof) dtp_stagdis(i)
+        if (eof < 0) exit
+        read (104,*,iostat=eof) dtp_reltype(i)
+        if (eof < 0) exit
+        read (104,*,iostat=eof) dtp_intcept(i)
+        if (eof < 0) exit
+        read (104,*,iostat=eof) dtp_expont(i)
+        if (eof < 0) exit
+        read (104,*,iostat=eof) dtp_coef1(i)
+        if (eof < 0) exit
+        read (104,*,iostat=eof) dtp_coef2(i)
+        if (eof < 0) exit
+        read (104,*,iostat=eof) dtp_coef3(i)
+        if (eof < 0) exit
 
-      read (104,*,iostat=eof) (dtp_weirtype(i,k),k=1,dtp_numstage(i))
-      if (eof < 0) exit 
-      read (104,*,iostat=eof) (dtp_weirdim(i,k),k=1,dtp_numstage(i))
-      if (eof < 0) exit
-      read (104,*,iostat=eof) (dtp_wdratio(i,k),k=1,dtp_numstage(i))
-      if (eof < 0) exit
-      read (104,*,iostat=eof) (dtp_depweir(i,k),k=1,dtp_numstage(i))
-      if (eof < 0) exit
-      read (104,*,iostat=eof) (dtp_diaweir(i,k),k=1,dtp_numstage(i))
-      if (eof < 0) exit
-      read (104,*,iostat=eof) (dtp_addon(i,k),k=1,dtp_numstage(i))
-      if (eof < 0) exit
-      read (104,*,iostat=eof) (dtp_flowrate(i,k),k=1,dtp_numstage(i))
-      if (eof < 0) exit
-      read (104,*,iostat=eof) (dtp_cdis(i,k),k=1,dtp_numstage(i))
-      if (eof < 0) exit
-      read (104,*,iostat=eof) (dtp_retperd(i,k),k=1,dtp_numstage(i))
-      if (eof < 0) exit
-      read (104,*,iostat=eof) (dtp_pcpret(i,k),k=1,dtp_numstage(i))   
-      if (eof < 0) exit
-      close (104)
-      else
+        read (104,*,iostat=eof) (dtp_weirtype(i,k),k=1,dtp_numstage(i))
+        if (eof < 0) exit 
+        read (104,*,iostat=eof) (dtp_weirdim(i,k),k=1,dtp_numstage(i))
+        if (eof < 0) exit
+        read (104,*,iostat=eof) (dtp_wdratio(i,k),k=1,dtp_numstage(i))
+        if (eof < 0) exit
+        read (104,*,iostat=eof) (dtp_depweir(i,k),k=1,dtp_numstage(i))
+        if (eof < 0) exit
+        read (104,*,iostat=eof) (dtp_diaweir(i,k),k=1,dtp_numstage(i))
+        if (eof < 0) exit
+        read (104,*,iostat=eof) (dtp_addon(i,k),k=1,dtp_numstage(i))
+        if (eof < 0) exit
+        read (104,*,iostat=eof) (dtp_flowrate(i,k),k=1,dtp_numstage(i))
+        if (eof < 0) exit
+        read (104,*,iostat=eof) (dtp_cdis(i,k),k=1,dtp_numstage(i))
+        if (eof < 0) exit
+        read (104,*,iostat=eof) (dtp_retperd(i,k),k=1,dtp_numstage(i))
+        if (eof < 0) exit
+        read (104,*,iostat=eof) (dtp_pcpret(i,k),k=1,dtp_numstage(i))   
+        if (eof < 0) exit
+        exit
+        end do
+        close (104)
       endif
      
 !!  END DETENTION POND FILE
@@ -417,6 +421,7 @@
       !! Wet pond (.wpd file)
       if (wpd_file /= '             ' .and. ievent > 0) then
       open (104,file=wpd_file)
+      do
       read (104,5100,iostat=eof) titldum
       if (eof < 0) exit
       read (104,*,iostat=eof) wtp_onoff(i)
@@ -473,8 +478,9 @@
       if (eof < 0) exit
       read (104,*,iostat=eof) wtp_ploss(i)
       if (eof < 0) exit
+      exit
+      end do
       close (104)
-      else
       endif   
       
       
@@ -483,6 +489,7 @@
       !! Retention-Irrigation
       if (rib_file /= '             '.and. ievent > 0) then
       open (104,file=rib_file)
+      do
       read (104,5100,iostat=eof) titldum
       if (eof < 0) exit
       read (104,*,iostat=eof) num_ri(i)
@@ -526,13 +533,15 @@
       read (104,*,iostat=eof) (ri_evrsv(i,k),k=1,num_ri(i))
       if (eof < 0) exit
       close (104)
-      else
+      exit
+      end do
       endif
 !! end .rib file
 
       !! Sedimentaton-Filtration (.sfb file)
       if (sfb_file /= '             '.and. ievent > 0) then     
       open (104,file=sfb_file)
+      do
       read (104,'(a20)',iostat=eof) titldum
       if (eof < 0) exit
       read (104,*,iostat=eof) num_sf(i)
@@ -569,7 +578,8 @@
       read (104,*,iostat=eof) (tss_den(i,k),k=1,num_sf(i))
       read (104,*,iostat=eof) (ft_alp(i,k),k=1,num_sf(i))
       close (104)
-      else
+      exit
+      end do
       endif
           
 
@@ -577,8 +587,9 @@
 
       !! LIDs (.lid file)
       !! LIDs (green roof, rain garden, cistern, and porous pavement) 
-      if (lid_file /= '             '.and. ievent > 2) then     
+      if (lid_file /= '             '.and. ievent > 0) then     
       open (104,file=lid_file)
+      do
       read (104,5100,iostat=eof) titldum
       read (104,5100,iostat=eof) titldum
       if (eof < 0) exit
@@ -662,13 +673,12 @@
       read (104,*,iostat=eof) (pv_dummy4(i,k),k=1,mudb)
       read (104,*,iostat=eof) (pv_dummy5(i,k),k=1,mudb)
       close (104)
-      else
+      exit
+      end do
       endif
 !! end .lid file
 
 
-      exit
-      end do
 
       if (isproj == 2) swetfr = 0.0
 

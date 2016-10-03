@@ -47,7 +47,7 @@
       sub_ha = da_ha * sub_fr(sb)
       dt = real(idt) / 60. !time interval in hours 
       qin = 0.; qout = 0.;qevap=0
-      flw(2,:) = 0.; sed(2,:) = 0.;f=0
+      flw(2,:) = 0.; sed(2,:) = 0.;f=0; qrchg = 0
       qpnd = 0.; qsw = 0.; qpndi = 0.; qpnde = 0.; fc = 0.;qfiltr = 0.
       kb = 1.38e-16 !Boltzmann constant, g-cm^2/s^2-K
 

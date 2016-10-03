@@ -496,6 +496,7 @@
       real, dimension (:), allocatable :: pnd_sed,pnd_nsed,strsa,dep_imp
       real, dimension (:), allocatable :: evpnd, evwet
       real, dimension (:), allocatable :: wet_fr,wet_nsa,wet_nvol,wet_k
+      integer, dimension (:), allocatable :: iwetgw, iwetile
       real, dimension (:), allocatable :: wet_mxsa,wet_mxvol,wet_vol
       real, dimension (:), allocatable :: wet_sed,wet_nsed
       real, dimension (:), allocatable :: smx,sci,bp1,bp2

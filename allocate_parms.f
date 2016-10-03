@@ -1334,6 +1334,8 @@
       allocate (wtab_mx(mhru))
       allocate (wet_chla(mhru))
       allocate (wet_fr(mhru))
+      allocate (iwetgw(mhru))
+      allocate (iwetile(mhru))
       allocate (wet_k(mhru))
       allocate (wet_mxsa(mhru))
       allocate (wet_mxvol(mhru))

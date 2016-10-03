@@ -95,7 +95,7 @@
       else
         if (icalen == 0) write (31,1030) (hedb(j), j = 1, msubo)         !!default printout
         if (icalen == 1) write (31,1031) (hedb(j), j = 1, msubo)         !!month/day/yr print
-1031  format (//6x,' SUB      GIS  MO DA  YR   AREAkm2',23(a10))
+1031  format (//6x,' SUB      GIS  MO DA  YR   AREAkm2',24(a10))
       endif
 
 !! write headings to reach output file (output.rch)
