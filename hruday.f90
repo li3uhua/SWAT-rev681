@@ -427,7 +427,7 @@
      &      hruno(j), sb, nmgt(j), i_mo, icl(iida), iyr, hru_km(j),     &
      &       (pdvs(ii), ii = 1, itots)
 1002  format (a4,i5,1x,a5,a4,i5,1x,i4,1x,i2,1x,i2,1x,i4,1x,e10.5,       &
-     & 66f10.3,1x,e10.5,1x,e10.5,8e10.3,2f10.3)
+     & 66f10.3,1x,e10.5,1x,e10.5,8e10.3,3f10.3)
       
 !!    added for binary files 3/25/09 gsm line below and write (33333
 	      if (ia_b == 1) then
