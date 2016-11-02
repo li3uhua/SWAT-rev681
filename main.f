@@ -28,35 +28,29 @@
 !!    zone        |NA            |time difference with respect to Coordinated
 !!                               |Universal Time (ie Greenwich Mean Time)
 !!    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-
 !!    ~ ~ ~ OUTGOING VARIABLES ~ ~ ~
 !!    name        |units         |definition
 !!    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 !!    prog        |NA            |program name and version
 !!    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-
 !!    ~ ~ ~ LOCAL DEFINITIONS ~ ~ ~
 !!    name        |units         |definition
 !!    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
 !!    i           |none          |counter
 !!    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
-
-
 !!    ~ ~ ~ SUBROUTINES/FUNCTIONS CALLED ~ ~ ~
 !!    Intrinsic: date_and_time
 !!    SWAT: getallo, allocate_parms, readfile, readfig
 !!    SWAT: readbsn, std1, readwwq, readinpt, std2, storeinitial
 !!    SWAT: openwth, headout, simulate, finalbal, writeaa, pestw 
-
-
 !!    ~ ~ ~ ~ ~ ~ END SPECIFICATIONS ~ ~ ~ ~ ~ ~
 
       use parm
       implicit none
-      prog = "SWAT Oct 6 2016    VER 2016/Rev 661"
+      prog = "SWAT Nov 2 2016    VER 2016/Rev 662"
       write (*,1000)
  1000 format(1x,"               SWAT2016               ",/,             
-     &          "               Rev. 661               ",/,             
+     &          "               Rev. 662               ",/,             
      &          "      Soil & Water Assessment Tool    ",/,             
      &          "               PC Version             ",/,             
      &          " Program reading from file.cio . . . executing",/)
