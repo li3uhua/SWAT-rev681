@@ -634,14 +634,14 @@
      &    'AMMONIA VOLATILIZATION =  ',f8.3,' (KG/HA)',/,t20,           
      &    'AMMONIA NITRIFICATION = ',f10.3,' (KG/HA)',/,t20,            
      &    'NO3 EVAP-LAYER 2 TO 1 = ',f8.3)
- 3100 format (/,t20,'DIE-GRO P Q =  ',f8.1,' (No/HA)',/,t20,            
-     &    'DIE-GRO LP Q =  ',f8.1,' (No/HA)',/,t20,                     
-     &    'DIE-GRO P SED = ',f8.1,' (No/HA)',/,t20,                     
-     &    'DIE-GRO LP SED = ',f8.1,' (No/HA)',/,t20,                    
-     &    'BACT P RUNOFF = ',f8.1,' (No/HA)',/,t20,                     
-     &    'BACT LP RUNOFF = ',f8.1,' (No/HA)',/,t20,                    
-     &    'BACT P SEDIMENT = ',f8.1,' (No/HA)',/,t20,                   
-     &    'BACT LP SEDIMENT = ',f8.1,' (No/HA)',/,t20,                  
-     &    'BACT P INCORP = ',f8.1,' (No/HA)',/,t20,                     
-     &    'BACT LP INCORP = ',f8.1,' (No/HA)',/)
+ 3100 format (/,t20,'DIE-GRO P Q =  ',f12.1,' (No/M2)',/,t20,            
+     &    'DIE-GRO LP Q =  ',f12.1,' (No/M2)',/,t20,                     
+     &    'DIE-GRO P SED = ',f12.1,' (No/M2)',/,t20,                     
+     &    'DIE-GRO LP SED = ',f12.1,' (No/M2)',/,t20,                    
+     &    'BACT P RUNOFF = ',f12.1,' (No/M2)',/,t20,                     
+     &    'BACT LP RUNOFF = ',f12.1,' (No/M2)',/,t20,                    
+     &    'BACT P SEDIMENT = ',f12.1,' (No/M2)',/,t20,                   
+     &    'BACT LP SEDIMENT = ',f12.1,' (No/M2)',/,t20,                  
+     &    'BACT P INCORP = ',f12.1,' (No/M2)',/,t20,                     
+     &    'BACT LP INCORP = ',f12.1,' (No/M2)',/)
       end

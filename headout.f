@@ -172,14 +172,14 @@
      &---------------- Sedimentation Pond ------------------------------
      &-----   ----------------------------------- Sand Filter ----------
      &-----------------------' 
-      write(77778,'(5a6,30a12)') 'year', 'day','time','sub','SFnum',
+      write(77778,'(5a6,30a12)') 'year', 'day','sub','SFnum',
      & 'inflw(m3)','outflw(m3)','bypass(m3)','recharg(m3)','sedin(kg)',
      & 'sedout(kg)','sbypass(kg)','inflw(m3)','outflw(m3)','bypass(m3)',
      & 'recharg(m3)','sedin(kg)','sedout(kg)','sbypass(kg)'
 
 !bmp-ri.out
       write(77779,'(a21)') 'Retention-Irrigation output'                
-      write(77779,'(5a6,30a12)') 'year', 'day','time','sub','RInum',
+      write(77779,'(5a6,30a12)') 'year', 'day','sub','RInum',
      & 'inflw(m3)','qbypass(m3)','pmpflw(m3)','pmpflw(m3)','sedin(kg)',
      & 'sbypass(kg)','pmpsed(kg)'
 
@@ -192,7 +192,7 @@
      &'   AREAkm2', 79(a10))	   
  1030 format (//6x,' SUB      GIS  MON   AREAkm2',24(a10))
  1040 format (//7x,'RCH      GIS   MON     AREAkm2',56a12)
- 1041 format (//7x,'RCH      GIS   DAY   DET     AREAkm2',45a12)    
+ 1041 format (//7x,'RCH      GIS   DAY   DET     AREAkm2',56a12)    
  1050 format (//6x,'     RES  MON',41a12)
  1060 format (//6x,'RCH GIS  MON',26a12)
  2000 format (a12,12x,i4,4x,i4)

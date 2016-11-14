@@ -548,7 +548,7 @@
          varoute(16,ihout) = sub_cbod(sb)                !!cbodu
          varoute(17,ihout) = sub_dox(sb)                 !!doxq & soxy
          if (varoute(2,ihout) > .1) then
-          varoute(18,ihout) = sub_bactp(sb) * sub_ha / varoute(2,ihout)
+          varoute(18,ihout) = sub_bactp(sb) * sub_ha / varoute(2,ihout) !cfu/100ml
           varoute(19,ihout) = sub_bactlp(sb) * sub_ha / varoute(2,ihout)
          end if
          varoute(20,ihout) = 0.                            !! cmetal #1
@@ -627,8 +627,8 @@
               hhvaroute(15,ihout,ii) = 0.                          !! NO2
               hhvaroute(16,ihout,ii) = varoute(16,ihout) * ratio   !!cbodu
               hhvaroute(17,ihout,ii) = varoute(17,ihout) * ratio   !!doxq & soxy
-              hhvaroute(18,ihout,ii) = varoute(18,ihout) * ratio   !!bactp
-              hhvaroute(19,ihout,ii) = varoute(19,ihout) * ratio   !!bactlp
+              hhvaroute(18,ihout,ii) = varoute(18,ihout)    !!bactp
+              hhvaroute(19,ihout,ii) = varoute(19,ihout)    !!bactlp
               hhvaroute(20,ihout,ii) = 0.                          !!cmetal#1
               hhvaroute(21,ihout,ii) = 0.                          !!cmetal#2
               hhvaroute(22,ihout,ii) = 0.                          !!cmetal#3

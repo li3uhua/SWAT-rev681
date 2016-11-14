@@ -121,7 +121,17 @@
           initp = hbactp(ii)
           initlp = hbactlp(ii)
         end do
-      end if
+        if (totbactp < 1.e-6) totbactp = 0.0 
+	  if (totbactlp < 1.e-6) totbactlp = 0.0
+        if (netwtr >= 1.) then
+          rch_bactp(jrch) = hbactp(nstep)
+          rch_bactlp(jrch) = hbactlp(nstep)
+        else
+          rch_bactp(jrch) = 0.
+          rch_bactlp(jrch) = 0.
+        end if
+
+      else
 
 !! daily mass balance
       !! total bacteria mass in reach
@@ -156,6 +166,7 @@
       else
         rch_bactp(jrch) = 0.
         rch_bactlp(jrch) = 0.
+      end if
       end if
 
       return
