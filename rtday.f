@@ -159,7 +159,8 @@
         !! calculate volume of water leaving reach on day
         scoef = 0.
  	  rtwtr = 0.
-        scoef = 2. * det / (2. * rttime + det)
+        !scoef = 2. * det / (2. * rttime + det)
+        scoef =  det / (rttime + det)
         if (scoef > 1.) scoef = 1.
         rtwtr = scoef * (wtrin + rchstor(jrch))
         !new storage coefficient replacement

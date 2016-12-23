@@ -747,12 +747,12 @@
 !! septic result  J.Jeong Feb2009
       open (173,file='septic.out')  
 	write(173,5102) 'HRU','YEAR','DAY','Precip', 'PERC',        
-     & 'sol_ul','sol_st','sol_fc','nh3init','nh3bgn','nh3end',   
-     & 'no3init','no3bgn','no3end', 'nitrN','denitrN','solpinit',
+     & 'sol_ul','sol_st','sol_fc','nh3bgn','nh3end',   
+     & 'no3bgn','no3end', 'nitrN','denitrN',
      & 'solpbgn','solpend','solpconc'
-      write(173,5102) '#','','','(mm)','(m3)','(mm)',    
-     & '(mm)','(mm)','(kg/ha)','(kg/ha)','(kg/ha)','(kg/ha)',
-     & '(kg/ha)','(kg/ha)','(kg/ha)','(kg/ha)','(kg/ha)',
+      write(173,5102) '#','','','(mm)','(mm)','(mm)',    
+     & '(mm)','(mm)','(kg/ha)','(kg/ha)',
+     & '(kg/ha)','(kg/ha)','(kg/ha)','(kg/ha)',
      & '(kg/ha)','(kg/ha)','(mg/l)'
 
 !!   charles ikenberry output file

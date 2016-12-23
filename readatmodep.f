@@ -87,7 +87,7 @@
       end select
 
 1001  format (2i6)
-1002  format (600f10.3)
+1002  format (1200f10.3)   !!!nbs
 1000  format (8x,4f10.3)
 5101  format (a80)
       return
