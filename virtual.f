@@ -536,7 +536,8 @@
                                                   !!sedorgp & sedminps
          varoute(6,ihout) = (sub_no3(sb) + sub_latno3(sb) +             
      &      sub_tileno3(sb) + sub_gwno3(sb)) * sub_ha          !!surqno3 & latno3 & no3gw
-         varoute(7,ihout) = (sub_solp(sb) + sub_gwsolp(sb)) * sub_ha   !!surqsolp & minpgw & sedminpa
+         varoute(7,ihout) = (sub_solp(sb) + sub_vaptile(sb) +
+     &                              sub_gwsolp(sb)) * sub_ha   !!surqsolp & minpgw & sedminpa
          varoute(8,ihout) = 0.
          varoute(9,ihout) = 0.
          varoute(10,ihout) = 0.

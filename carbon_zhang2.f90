@@ -112,6 +112,14 @@
        real :: PN1, PN2, PN3, PN4, PN5, PN6, PN7, PN8, PN9
        real :: SUM, CPN1, CPN2, CPN3, CPN4, CPN5
        real :: WMIN,DMDN, wdn, Delta_BMC, DeltaWN
+       
+
+      j = 0
+      j = ihru
+       
+       !!    zero new carbon variables for output.hru
+        cmup_kgh(j) = 0.
+        cmtot_kgh(j) = 0.
        !! initilize local variables
        DeltaWN = 0.
        DeltaBMC = 0.   
@@ -694,10 +702,13 @@
               sol_orgn(k,j) = sol_HPN(k,j)
               sol_aorgn(k,j) = sol_HSN(k,j)
               sol_fon(k,j) = sol_LMN(k,j) + sol_LSN(k,j) 
-              sol_cbn(k,j) = 100*(sol_LSC(k,j)+sol_LMC(k,j) +sol_HSC(k,j) + sol_HPC(k,j) + sol_BMC(k,j))/sol_mass    
+              sol_cbn(k,j) = 100*(sol_LSC(k,j)+sol_LMC(k,j) +sol_HSC(k,j) + sol_HPC(k,j) + sol_BMC(k,j))/sol_mass 
+              
+              !!    carbon outputs for .hru file
+              if (k == 1) cmup_kgh(j) = sol_cbn(k,j) * sol_mass / 100.
+              cmtot_kgh(j) = cmtot_kgh(j) + sol_cbn(k,j) * sol_mass / 100.
  
 
- 
 !! septic changes 1/28/09 gsm
 !!  compute denitrification while simulating septic tank
       !wdn = 0.   
