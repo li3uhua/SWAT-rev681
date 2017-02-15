@@ -79,7 +79,6 @@
       net_N_pro = 0.
       solN_net_min = 0.
       solN_net_min_pro=0.
-      
 !!    zero new carbon variables for output.hru
       cmup_kgh(j) = 0.
       cmtot_kgh(j) = 0.

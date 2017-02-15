@@ -91,8 +91,8 @@
       pdvab(19) = sub_chl(sb) / sub_ha
       pdvab(20) = sub_cbod(sb) / sub_ha
       pdvab(21) = sub_dox(sb) / sub_ha
-      pdvab(22) = sub_tileno3(sb)    !! tileno3
       pdvab(23) = sub_tileq(sb)      !! tile flow  jane f.
+      pdvab(22) = sub_tileno3(sb)    !! tileno3
       pdvab(24) = sub_vaptile(sb)    !! phos due to crack flow
 
       if (ipdvab(1) > 0) then

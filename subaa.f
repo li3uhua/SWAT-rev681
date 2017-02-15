@@ -89,8 +89,8 @@
         pdvab(19) = 0.0
         pdvab(20) = 0.0
         pdvab(21) = 0.0
-        pdvab(22) = subaao(19,sb)   !!tile_no3
         pdvab(23) = subaao(18,sb)   !!qtile jane f.
+        pdvab(22) = subaao(19,sb)   !!tile_no3
         pdvab(24) = subaao(20,sb)   !!phos due to crack flow jane f. (tvap)
 
         if (ipdvab(1) > 0) then

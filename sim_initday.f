@@ -183,7 +183,6 @@
       sub_surfq = 0.
       sub_sw = 0.
       sub_tileno3 = 0.
-      sub_vaptile = 0.
       sub_tran = 0.
       sub_wtmp = 0.
       sub_wyld = 0.

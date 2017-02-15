@@ -671,9 +671,9 @@
       if (isto > 0) then
         open (129,file='output.swr')
         write (129,5001) 
-5001    format (t20,'Soil Storage (mm)',/,t25,'Layer #',/,t3,'Day',t9,
-     *  'HRU',t19,'GIS',t34,'1',t46,'2',t58,'3',t70,'4',t82,'5',t93,'6',
-     *  t106,'7',t118,'8',t130,'9',t141,'10')
+5001    format (t20,'Soil Storage (mm)',/,t15,'Layer #',/,t3,'Day',t13,
+     *  'HRU',t28,'1',t40,'2',t52,'3',t64,'4',t76,'5',t87,'6',t100,
+     *  '7',t112,'8',t124,'9',t135,'10')
       end if
 
 
