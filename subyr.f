@@ -82,8 +82,8 @@
         pdvab(19) = 0.0
         pdvab(20) = 0.0
         pdvab(21) = 0.0
-        pdvab(23) = subyro(18,sb)    !!qtile jane f.
         pdvab(22) = subyro(19,sb)    !!tile_no3
+        pdvab(23) = subyro(18,sb)    !!qtile jane f.
         pdvab(24) = subyro(20,sb)    !!phos due to crack flow jane f.
 
         if (ipdvab(1) > 0) then
