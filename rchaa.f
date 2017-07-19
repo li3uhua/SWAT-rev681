@@ -232,6 +232,6 @@
       end do
 
       return
- 5000 format ('REACH ',i4,1x,i8,1x,f5.1,47e12.4)
- 6000 format ('REACH ',i4,1x,i8,1x,f5.1,47e12.4,1x,i4)
+ 5000 format ('REACH ',i5,1x,i8,1x,f5.1,47e12.4)
+ 6000 format ('REACH ',i5,1x,i8,1x,f5.1,47e12.4,1x,i4)
       end

@@ -541,6 +541,17 @@
       wshd_aamon = 0.
 !      wshddayo = 0.
       yr_skip = 0
-
+      
+      !initialize flood routing variables
+      do i=1,4
+          IHX(i) = i
+      end do
+      QHY = 0.
+      NHY = 1
+      RCHX = 0.
+      RCSS = 0.
+      QCAP = 0.
+      CHXA = 0.
+      CHXP = 0.
       return
       end

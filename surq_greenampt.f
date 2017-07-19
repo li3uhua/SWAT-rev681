@@ -72,7 +72,7 @@
 
       use parm
 
-      integer :: j, k, kk, sb, ii
+      integer :: j, k, kk, sb, ii,ida
       real :: adj_hc, dthet, soilw, psidt, tst, f1
       real :: lid_prec, lid_cumr, urban_prec
       real, dimension (nstep+1) :: cumr, cuminf, excum, exinc, rateinf
@@ -82,6 +82,7 @@
        j = 0
        j = ihru
        sb = hru_sub(j)     
+       ida=iida
       
        !! reset values for day
        cumr = 0.

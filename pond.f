@@ -241,7 +241,7 @@
              if (trappnd > 1.) trappnd = 1.
              susp = 1. - trappnd
           else
-             susp = 0.
+             susp = 1.
           endif
                
           pnd_sed(k) = (sed * vol + susp * pndsedin) / pnd_vol(k)

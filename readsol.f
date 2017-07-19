@@ -118,19 +118,20 @@
       read (107,5000) (sol_rock(j,ihru), j = 1, nly)
       read (107,5000) sol_alb(ihru)
       read (107,5000) usle_k(ihru)
-!    change below double subscripted sol_ec statement 1/27/09 when making septic changes
+!    change double subscripted sol_ec statement 1/27/09 when making septic changes
       read (107,5000,iostat=eof) (sol_ec(j,ihru), j = 1, nly)
-!    change below double subscripted sol_ec statement 1/27/09 when making septic changes
-
-      !! MJW added rev 490
-	!!CaCo3 content (%) 
-	if (eof < 0) exit	
-	  read (107,5000,iostat=eof) (sol_cal(j,ihru), j = 1, nly) 	
-	!! PH-H20  
 	if (eof < 0) exit
+!    change double subscripted sol_ec statement 1/27/09 when making septic changes
+
+      !! MJW added rev 490      
+      !! PH-H20 
 	  read (107,5000,iostat=eof) (sol_ph(j,ihru), j = 1, nly) 
-      
-      if (eof < 0) exit
+        if (eof < 0) exit
+        
+	!!CaCo3 content (%) 	
+	  read (107,5000,iostat=eof) (sol_cal(j,ihru), j = 1, nly) 	
+	  if (eof < 0) exit
+
       exit
       end do
 

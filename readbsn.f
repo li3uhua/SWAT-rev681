@@ -530,16 +530,23 @@
       read (103,*,iostat=eof) uhalpha 
       if (eof < 0) exit
       read (103,*,iostat=eof) titldum
-      read (103,'(a130)') tlu
-       do ii=3,len_trim(tlu)
-          if ((tlu(ii:ii).eq.','.and.tlu(ii-1:ii-1).ne.',').or.   
-     &       (tlu(ii:ii).eq.' '.and.tlu(ii-1:ii-1).ne.' ')) then
-             numlu = numlu + 1
-          end if	   
-       end do 
-       if (len_trim(tlu).le.3) numlu = 0
-       backspace(103)
-       read (103,*) (lu_nodrain(kk), kk=1,numlu)
+      read (103,'(a)') tlu
+      pos = index(tlu, ",")
+      if(pos>0.and.len_trim(tlu)>0) then
+          numlu = 1
+          do ii=pos+1,len_trim(tlu)
+              if (tlu(ii:ii).eq.',') then
+                 numlu = numlu + 1
+              end if	   
+          end do
+          if (tlu(ii-1:ii-1).ne.',') then
+                 numlu = numlu + 1
+          end if    
+      end if
+          
+      if (len_trim(tlu).le.3) numlu = 0
+      backspace(103)
+      read (103,*) (lu_nodrain(kk), kk=1,numlu)
        
 
  !!   subdaily erosion modeling by Jaehak Jeong
@@ -589,6 +596,10 @@
       read (103,*,iostat=eof) ismax
       if (eof < 0) exit   
       read (103,*,iostat=eof) iroutunit
+      if (eof < 0) exit   
+      read (103,*,iostat=eof) sfsedmean
+      if (eof < 0) exit   
+      read (103,*,iostat=eof) sfsedstdev
       exit
 !!    Drainmod input variables - 01/2006
       end do
