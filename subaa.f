@@ -107,5 +107,5 @@
 
       return
 !1000 format ('BIGSUB',i4,1x,i8,1x,f4.1,e10.5,21f10.3)
- 1000 format('BIGSUB',i4,1x,i8,1x,f4.1,e10.5,18f10.3,1x,e10.5,5e10.3)
+ 1000 format('BIGSUB',i5,1x,i8,1x,f4.1,e10.5,18f10.3,1x,e10.5,5e10.3)
       end 

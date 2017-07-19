@@ -98,6 +98,8 @@
         vap = vap - vap_tile
       end if
 
+      if (qtile < 1.e-6) vap_tile = 0.
+      
       if (sol_nly(j) >= 2) then
         sol_solp(2,j) = sol_solp(2,j) + vap
       end if

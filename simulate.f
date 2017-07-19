@@ -162,8 +162,8 @@
        
         do i = id1, idlst                            !! begin daily loop
 
-          !screen print days of the year for subdaily runs (dt<60min)
-          if (ievent>0.and.idt<60) then
+          !screen print days of the year for subdaily runs 
+          if (ievent>0) then
             write(*,'(3x,I5,a6,i4)') iyr,'  day:', iida
           endif
          
@@ -279,6 +279,16 @@
             iida = i + 1
             call xmon
           endif
+          
+           IF(ievent>0)THEN
+              QHY(:,:,IHX(1))=0. 
+              II=IHX(1)
+              DO K=2,4
+                  IHX(K-1)=IHX(K)
+              END DO
+              IHX(4)=II
+          END IF
+         
 
         end do                                        !! end daily loop
 

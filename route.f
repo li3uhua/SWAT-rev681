@@ -99,7 +99,7 @@
         if (irte == 0) call rtday
         if (irte == 1) call rtmusk
       else
-        if (irte == 0) call rtdt
+        if (irte == 0) call rthvsc
         if (irte == 1) call rthmusk
       endif
 

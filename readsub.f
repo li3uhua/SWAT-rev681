@@ -154,7 +154,7 @@
 
       read (101,5100) titldum
       read (101,*) sub_km(i)
-      if (isproj == 2) then
+      if (isproj == 3) then
        read (101,5101) harg_petco(i), cncoef_sub(i), sub_smfmx(1,i),
      &  sub_smfmn(1,i), sub_sftmp(1,i), sub_smtmp(1,i), sub_timp(1,i)
         do ib = 2, 10

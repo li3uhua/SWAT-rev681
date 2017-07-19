@@ -110,6 +110,7 @@
 	finsed = 0.
 	setsed = 0.
 	remsetsed = 0.
+      trapres = 0.
 
       vol = res_vol(jres)
       sed = res_sed(jres)
@@ -299,7 +300,7 @@
 	    if (trapres > 1.) trapres = 1.  !! set to nres
 	    susp = 1. - trapres
 	  else
-	    susp = 0.
+	    susp = 1.
 	  end if
 
 	if (res_vol(jres) > 0.) then                         !!MJW added 040811

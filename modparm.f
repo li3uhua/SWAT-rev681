@@ -754,6 +754,7 @@
       integer, dimension(:), allocatable:: num_sf
       integer, dimension(:,:), allocatable:: sf_typ,sf_dim,ft_qfg,
      &  sp_qfg,sf_ptp,ft_fc 
+      real :: sfsedmean,sfsedstdev  !Jaehak effluent probability method for urban bmp 2017
       
       !detention pond
 	integer, dimension(:), allocatable :: dtp_subnum,dtp_imo,
@@ -836,7 +837,7 @@
       real :: bio_init, lai_init, cnop,hi_ovr,harveff,frac_harvk
 
       ! van Genuchten equation's coefficients
-      real, allocatable :: lid_vgcl,lid_vgcm,lid_qsurf_total,
+      real :: lid_vgcl,lid_vgcm,lid_qsurf_total,
      & lid_farea_sum
       
       ! soil water content and amount of accumulated infiltration
@@ -965,6 +966,13 @@
       real, dimension(:), allocatable :: tillage_factor
       ! tillage_factor: = 1.6 in 30 days after tillage practices occur; otherwise 1.0;
 !! By Zhang for C/N cycling
+      
+      !Flood routing variables by Jaehak Jeong 2017
+      real :: dthy
+      integer, dimension(4) :: IHX
+      integer, dimension(:), allocatable :: NHY
+      real, dimension(:), allocatable :: RCHX,RCSS,QCAP,CHXA,CHXP
+      real, dimension(:,:,:), allocatable :: QHY
 
 
 

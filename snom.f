@@ -113,8 +113,12 @@
 !! elevation bands
         !! compute snow fall and melt for each elevation band
         do ib = 1, 10
-          ratio = precipday / subp(j)
-          pcpband(ib,j) = ratio * pcpband(ib,j)
+          if (subp(j) > 0.) then
+            ratio = precipday / subp(j)
+            pcpband(ib,j) = ratio * pcpband(ib,j)
+          else
+            pcpband(ib,j) = 0.
+          end if
           if (elevb_fr(ib,isub) < 0.) exit
           snotmpeb(ib,j) = snotmpeb(ib,j) * (1.-sub_timp(ib,isub)) +
      &                                tavband(ib,j) * sub_timp(ib,isub)
