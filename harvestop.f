@@ -278,7 +278,7 @@
       if (hi_rsd > 0.) then
         yieldrsd = hi_rsd * sol_rsd(1,j)
         yieldnrsd = hi_rsd * sol_fon(1,j)
-        yieldprsd = hi_rsd * sol_fon(1,j)
+        yieldprsd = hi_rsd * sol_fop(1,j)
         sol_rsd(1,j) = sol_rsd(1,j) - yieldrsd
         sol_fon(1,j) = sol_fon(1,j) - yieldnrsd
         sol_fop(1,j) = sol_fop(1,j) - yieldprsd
