@@ -2,6 +2,9 @@
       integer icalen
       real :: prf_bsn
       
+!!    srin - co2 (EPA)
+      real :: co2_x2, co2_x
+           
       real, dimension (:), allocatable :: alph_e
       real, dimension (:), allocatable :: co_p, surlag, cdn, nperco
       real, dimension (:), allocatable :: cmn, phoskd, psp, sdnco

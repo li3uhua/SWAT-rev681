@@ -293,8 +293,13 @@
         end do                                        !! end daily loop
 
         !! perform end-of-year processes
+        do isb = 1, msub
+          !! Srin co2 (EPA)
+          !! increment co2 concentrations 
+          co2(isb) = co2_x2 * curyr **2 + co2_x * curyr + co2(isb)
+        end do
+        
         do j = 1, nhru
-
           !! compute biological mixing at the end of every year
 
 !          if (biomix(j) > .001) call tillmix (j,biomix(j))

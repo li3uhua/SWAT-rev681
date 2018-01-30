@@ -1,4 +1,4 @@
-      subroutine wet_pond
+      subroutine bmp_wet_pond
       
 !!    ~ ~ ~ PURPOSE ~ ~ ~
 !!    run wet pond processes
@@ -230,7 +230,7 @@
       endif
 	   if (wtp_sedi(sb)<wtp_sede(sb))  wtp_sedi(sb) = wtp_sede(sb)
          
-      end subroutine 
+      end subroutine bmp_wet_pond 
 
    !-------------------------------------------------------------------
       subroutine ext_dpth(hmax)

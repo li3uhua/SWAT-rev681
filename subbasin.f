@@ -417,9 +417,6 @@
           qdfr = 0.
         end if
 
-        !! compute chl-a, CBOD and dissolved oxygen loadings
-        call subwq
-
         !! compute wetland processes
         call wetlan
 
@@ -444,6 +441,9 @@
         !! perform water balance
         call watbal
         
+        !! compute chl-a, CBOD and dissolved oxygen loadings
+        call subwq
+
         !! qdayout is surface runoff leaving the hru - after wetlands, ponds, and potholes
         qdayout(j) = qday
 

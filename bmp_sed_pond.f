@@ -1,4 +1,4 @@
-      subroutine sed_pond(kk,flw,sed)
+      subroutine bmp_sed_pond(kk,flw,sed)
       
 !!    ~ ~ ~ PURPOSE ~ ~ ~
 !!    this subroutine routes water and sediment through a sedimentation pond in the subbasin
@@ -183,7 +183,7 @@
 
 
       return
-      end subroutine
+      end subroutine bmp_sed _pond
    
  !-------------------------------------------------------------------------------
       function pipeflow(d,h)

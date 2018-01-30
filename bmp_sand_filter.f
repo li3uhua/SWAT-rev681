@@ -1,4 +1,4 @@
-      subroutine sand_filter(kk,flw,sed)
+      subroutine bmp_sand_filter(kk,flw,sed)
       
 !!    ~ ~ ~ PURPOSE ~ ~ ~
 !!    this subroutine routes water and sediment through sand filters in the subbasin
@@ -353,4 +353,4 @@
       ft_fc(sb,kk) = fc(nstep)
 
       return
-      end subroutine
+      end subroutine bmp_sand_filter

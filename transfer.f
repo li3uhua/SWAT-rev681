@@ -148,10 +148,10 @@
         case (1)     !! transfer fraction of water in source
           tranmx = volum * rnum1
         case (2)     !! leave minimum volume or flow
-          tranmx = volum - rnum1
+          tranmx = volum - rnum1 * 86400.
           if (tranmx < 0.) tranmx = 0.
         case (3)     !! transfer volume specified
-          tranmx = rnum1
+          tranmx = rnum1 * 86400.
           if (tranmx > volum) tranmx = volum
       end select
  
@@ -236,7 +236,7 @@
           varoute(ii,nhyd_tr) = varoute(ii,nhyd_tr) * ratio
         end do
         !!save vartran to add in rchinit and resinit
-        vartran(2,inum3) = varoute(2,nhyd_tr) / ratio * ratio1
+        vartran(2,inum3) = xx
         do ii = 3, mvaro
           vartran(ii,inum3) = varoute(ii,nhyd_tr) * ratio1
         end do

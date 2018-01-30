@@ -1,4 +1,4 @@
-      subroutine det_pond
+      subroutine bmp_det_pond
       
 !!    ~ ~ ~ PURPOSE ~ ~ ~
 !!    the purpose of this program is to read in data from the detention pond
@@ -224,4 +224,4 @@
       dtp_ivol(sb) = qpnd !m^3
       dtp_ised(sb) = sedpnd !tons
 
-      end subroutine 
+      end subroutine bmp_det_pond

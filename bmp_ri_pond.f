@@ -1,4 +1,4 @@
-      subroutine ri_pond(kk,riflw,rised)
+      subroutine bmp_ri_pond(kk,riflw,rised)
 
 !!    ~ ~ ~ PURPOSE ~ ~ ~
 !!    this subroutine routes water through a retention irrigation pond in the subbasin
@@ -135,4 +135,4 @@
       ri_sedi(sb,kk) = sedpnde
 
       return
-      end subroutine
+      end subroutine bmp_ri_pond

@@ -47,10 +47,10 @@
 
       use parm
       implicit none
-      prog = "SWAT Aug 14 2017    VER 2017/Rev 667"
+      prog = "SWAT Jan 30    VER 2018/Rev 668"
       write (*,1000)
- 1000 format(1x,"               SWAT2017               ",/,             
-     &          "               Rev. 667               ",/,             
+ 1000 format(1x,"               SWAT2018               ",/,             
+     &          "               Rev. 668               ",/,             
      &          "      Soil & Water Assessment Tool    ",/,             
      &          "               PC Version             ",/,             
      &          " Program reading from file.cio . . . executing",/)
@@ -102,8 +102,7 @@
       endif
         if (iclb /= 4) then
       do iscen = 1, scenario
-
-     
+    
         !! simulate watershed processes
         call simulate
 
@@ -116,7 +115,7 @@
         if (scenario > iscen) call rewind_init
       end do
          end if
-      do i = 101, 109       !Claire 12/2/09: change 1, 9  to 101, 109.
+      do i = 101, 109 
         close (i)
       end do
       close(124)

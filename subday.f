@@ -95,6 +95,7 @@
       pdvab(23) = sub_tileq(sb)      !! tile flow  jane f.
       pdvab(24) = sub_vaptile(sb)    !! phos due to crack flow
 
+
       if (ipdvab(1) > 0) then
         do ii = 1, itotb
           pdvb(ii) = pdvab(ipdvab(ii))

@@ -5,6 +5,10 @@
 
       use parm
       
+!!    Srin co2 (EPA)
+      co2_x2 = 0.
+      co2_x = 0.
+      
       lid_sw_add = 0.
       lid_farea = 0.
       rg_sarea = 0.
