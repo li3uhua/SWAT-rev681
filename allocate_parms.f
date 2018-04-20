@@ -1173,6 +1173,9 @@
       allocate (pnd_cla(mhru))
       allocate (pnd_sag(mhru))
       allocate (pnd_lag(mhru))
+      
+      allocate (twlpnd(mhru))     !!srini pond/wet infiltration to shallow gw storage
+      allocate (twlwet(mhru))     !!srini pond/wet infiltration to shallow gw storage
 
       allocate (pnd_solp(mhru))
       allocate (pnd_solpg(mhru))

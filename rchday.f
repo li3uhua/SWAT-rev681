@@ -103,8 +103,8 @@
       use parm
 
       integer :: j
-      real, dimension (mrcho) :: pdvar, pdvr
-      real, dimension (2) :: srch_av
+      real*8, dimension (mrcho) :: pdvar, pdvr
+      real*8, dimension (2) :: srch_av
 
       do j = 1, subtot
 

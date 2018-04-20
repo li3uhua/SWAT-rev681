@@ -138,7 +138,7 @@
       character (len=13) :: opsfile, wgnfile, pndfile, wusfile, septfile
 	  character (len=13) :: sdrfile, ltcfile
       integer :: eof, mon, j, jj, ip, if, ir
-      real :: ssnoeb(10), sno_sub, ch_ls, sumebfr
+      real*8 :: ssnoeb(10), sno_sub, ch_ls, sumebfr
 
       wgnfile = ""
       pndfile = ""

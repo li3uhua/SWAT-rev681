@@ -88,7 +88,7 @@
 !!    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 !!    ~ ~ ~ SUBROUTINES/FUNCTIONS CALLED ~ ~ ~
-!!    Intrinsic: Abs, Min
+!!    Intrinsic: abs, Min
 !!    SWAT: irrigate
 
 !!    ~ ~ ~ ~ ~ ~ END SPECIFICATIONS ~ ~ ~ ~ ~ ~
@@ -96,7 +96,7 @@
       use parm
 
       integer :: jres, k, flag
-      real :: cnv, vmm, vol, vmxi
+      real*8 :: cnv, vmm, vol, vmxi
 
       jres = 0
       jres = inum1

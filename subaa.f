@@ -55,9 +55,9 @@
 
       use parm
 
-      real, intent (in) :: years
+      real*8, intent (in) :: years
       integer :: sb, ii
-      real, dimension (msubo) :: pdvab, pdvb
+      real*8, dimension (msubo) :: pdvab, pdvb
 
       do sb = 1, subtot
 

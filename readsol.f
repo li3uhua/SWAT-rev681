@@ -69,7 +69,7 @@
 !!    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 !!    ~ ~ ~ SUBROUTINES/FUNCTIONS CALLED ~ ~ ~
-!!    Exp, Abs
+!!    Exp, abs
 
 !!    ~ ~ ~ ~ ~ ~ END SPECIFICATIONS ~ ~ ~ ~ ~ ~
 
@@ -78,8 +78,9 @@
       character (len=80) :: titldum
 !      integer :: j, nly, n, jj, flag, eof
       integer :: j, nly, eof            !claire: jj, n, and flag are not used 12/02/09
-!      real :: xx, plt_zmx, yy
-      real :: plt_zmx                   !Claire, xx and yy are not used 12/2/09
+!      real*8 :: xx, plt_zmx, yy
+      real*8 :: plt_zmx                   !Claire, xx and yy are not used 12/2/09
+      real*8 :: dep_new
 
 !!    initialize local variables
       nly = 0

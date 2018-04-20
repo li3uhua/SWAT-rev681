@@ -27,10 +27,10 @@
 
 !!    ~ ~ ~ ~ ~ ~ END SPECIFICATIONS ~ ~ ~ ~ ~ ~
 
-      real,intent(in) :: mu,sig
-      real,intent(out):: c
-      real:: temp(2),r,theta
-      real,PARAMETER :: PI=3.141592653589793238462
+      real*8,intent(in) :: mu,sig
+      real*8,intent(out):: c
+      real*8 :: temp(2),r,theta
+      real*8,PARAMETER :: PI=3.141592653589793238462
       CALL RANDOM_NUMBER(temp)
       r = (-2.0d0*log(temp(1)))**0.5
       theta = 2.0d0*PI*temp(2)

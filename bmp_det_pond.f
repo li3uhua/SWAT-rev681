@@ -51,7 +51,7 @@
 
       character (len=80) :: titldum
       integer :: ii, k, sb
-      real :: qin,qout,qpnd,qpnd_last,sedin,sedout,sedpnd,spndconc,
+      real*8 :: qin,qout,qpnd,qpnd_last,sedin,sedout,sedpnd,spndconc,
      &        qdepth,sedpnd_last,
      &        watdepact,qstage,backup_length,seep_sa,evap_sa,pcp_vol,
      &        evap_vol,seep_vol,warea,pi,qovmax,qaddon,depaddon

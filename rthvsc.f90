@@ -82,9 +82,10 @@
       use parm
 
       integer :: jrch, ii, inhyd,j,l,cday,istep
-      real :: wtrin, c, p, scoef
-      real :: vol, topw,pcpday
-      real, dimension(nstep*5) :: QMS, QMSI,pcp
+      real*8 :: wtrin, c, p, scoef
+      real*8 :: vol, topw,pcpday
+      real*8, dimension(nstep*5) :: QMS, QMSI,pcp
+      real*8 :: ai, aii, ao, cbw, chw, fpw, g1, qi2, sss, xflo, zch, zi, zii, zo
 
       QMS = 0.
       QMSI = 0.
@@ -195,7 +196,7 @@
                 C = MIN(.99,2.*DTHY/(2.*TT+DTHY))
                 Q1 = C * SIA !Q1 is outflow m3/s Eq(15) in Jeong et al. (2014)
                 GQ = Q1 - G1                                                                       
-                    IF (ABS(GQ/G1) < .001) EXIT
+                    IF (abs(GQ/G1) < .001) EXIT
                     IF (GQ > 0.)THEN
                         GL = G1
                     ELSE

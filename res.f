@@ -96,9 +96,9 @@
       use parm
 
       integer :: jres
-      real :: vol, sed, vvr, targ, xx, flw
-	real :: san,sil,cla,sag,lag,gra,ndespill
-	real :: inised, finsed, setsed, remsetsed
+      real*8 :: vol, sed, vvr, targ, xx, flw
+	real*8 :: san,sil,cla,sag,lag,gra,ndespill
+	real*8 :: inised, finsed, setsed, remsetsed
  
       jres = 0
       jres = inum1

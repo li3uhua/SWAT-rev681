@@ -85,7 +85,7 @@
       use parm
 
       integer :: j, k, flag
-      real :: vmma, vmm, cnv, vmxi, vol, vmms, vmmd
+      real*8 :: vmma, vmm, cnv, vmxi, vol, vmms, vmmd
 
       j = 0
       j = ihru

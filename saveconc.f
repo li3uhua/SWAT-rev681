@@ -97,9 +97,9 @@
 
       use parm
 
-      real, dimension (19) :: varii
+      real*8, dimension (19) :: varii
       integer :: ii, j
-      real:: inflow
+      real*8 :: inflow
       
       if (inum1 <= 50 .and. inum1 > 0) then
       if (ievent == 1 .and. inum2 == 1) then

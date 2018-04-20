@@ -22,7 +22,7 @@
       use parm
 
       integer :: j, l
-      real :: solp_t, solno3_t, solorgn_t, solorgp_t
+      real*8 :: solp_t, solno3_t, solorgn_t, solorgp_t
 
       do j = 1,nhru
         solp_t = 0.

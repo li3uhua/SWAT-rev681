@@ -58,8 +58,8 @@
       use parm
 
       integer :: sb, ii
-      real :: sub_ha
-      real, dimension (msubo) :: pdvab, pdvb
+      real*8 :: sub_ha
+      real*8, dimension (msubo) :: pdvab, pdvb
 
       sb = 0
       sb = hru_sub(ihru)

@@ -92,7 +92,7 @@
 !!    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 !!    ~ ~ ~ SUBROUTINES/FUNCTIONS CALLED ~ ~ ~
-!!    Intrinsic: Real, Sin, Exp
+!!    Intrinsic: real*8, Sin, Exp
 
 !!    ~ ~ ~ ~ ~ ~ END SPECIFICATIONS ~ ~ ~ ~ ~ ~
 
@@ -100,8 +100,8 @@
       use parm
 
       integer :: j, ib
-      real :: sum, smp, smfac, smleb
-      real :: xx, snocov 
+      real*8 :: sum, smp, smfac, smleb
+      real*8 :: xx, snocov 
 
       j = 0
       j = ihru

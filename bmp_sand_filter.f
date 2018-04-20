@@ -41,12 +41,12 @@
      & sedconc,qevap,hrd,qrchg
       real*8, dimension(:) :: qpnd(0:nstep),qsw(0:nstep),qin(0:nstep),
      & qout(0:nstep),fc(0:nstep),f(0:nstep)
-      real, dimension(4,0:nstep), intent(inout) :: flw, sed
-      real::sedoutc
+      real*8, dimension(4,0:nstep), intent(inout) :: flw, sed
+      real*8 :: sedoutc
       
       sb = inum1
       sub_ha = da_ha * sub_fr(sb)
-      dt = real(idt) / 60. !time interval in hours 
+      dt = dfloat(idt) / 60. !time interval in hours 
       qin = 0.; qout = 0.;qevap=0
       flw(2,:) = 0.; sed(2,:) = 0.;f=0; qrchg = 0
       qpnd = 0.; qsw = 0.; qpndi = 0.; qpnde = 0.; fc = 0.;qfiltr = 0.
@@ -138,7 +138,7 @@
                Do  !green and ampt infiltration
                  fc(ii) = fc(ii - 1) + ksat * dt + whd * Log((tst + whd)
      &                  / (fc(ii - 1) + whd))
-                 If (Abs(fc(ii) - tst) < 0.001) Then
+                 If (abs(fc(ii) - tst) < 0.001) Then
                    Exit 
                  Else
                    tst = fc(ii)

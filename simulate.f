@@ -87,7 +87,7 @@
 !!    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 !!    ~ ~ ~ SUBROUTINES/FUNCTIONS CALLED ~ ~ ~
-!!    Intrinsic: Mod, Real
+!!    Intrinsic: Mod, real*8
 !!    SWAT: sim_inityr, std3, xmon, sim_initday, clicon, command
 !!    SWAT: writed, writem, tillmix
 
@@ -96,7 +96,7 @@
       use parm
 
       integer :: idlst, j, iix, iiz, ic, mon, ii
-      real :: xx
+      real*8 :: xx
       integer :: eof
       
       eof = 0
@@ -319,7 +319,7 @@
           !! year just simulated
           do ic = 1, mcr
             xx = 0.
-            xx = Real(curyr)
+            xx = dfloat(curyr)
             tnylda(j) = (tnylda(j) * xx + tnyld(j)) / (xx + 1.)
           end do
 

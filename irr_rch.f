@@ -105,7 +105,7 @@
 !!    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 !!    ~ ~ ~ SUBROUTINES/FUNCTIONS CALLED ~ ~ ~
-!!    Intrinsic: Abs, Min
+!!    Intrinsic: abs, Min
 !!    SWAT: irrigate
 
 !!    ~ ~ ~ ~ ~ ~ END SPECIFICATIONS ~ ~ ~ ~ ~ ~
@@ -113,7 +113,7 @@
       use parm
 
       integer :: jrch, k, flag, ii
-      real :: cnv, vmm, vminmm, vol, wtrin
+      real*8 :: cnv, vmm, vminmm, vol, wtrin
 
       jrch = 0
       jrch = inum1
@@ -156,7 +156,7 @@
               !! compute maximum amount of water allowed in HRU
               if (divmax(k) < 0.) then
                 !!divmax units are 10^4 m^3
-                vmm = Abs(divmax(k)) * 10000. / cnv
+                vmm = abs(divmax(k)) * 10000. / cnv
               else
                 !! divmax units are mm H2O
                 vmm = divmax(k)
@@ -206,7 +206,7 @@
 !!                xx = vol     							                           !! BN: replaced "wtrin" with "vol"
                 vol = vol / irr_eff(k)   !! BN: inserted to account for irr. efficiency                                             
                 xx = (wtr_avail - flowmin(k) * 86400.) * flowfr(k)                 !! BN: inserted: xx = available/allowed amount in m3/s
-                xx = Min(xx, vol)                                                  !! BN: inserted abstracted water cannot be more than allowed/available amount
+                xx = Min(xx, vol)                                                  !! BN: inserted dabstracted water cannot be more than allowed/available amount
                 if (xx > rchstor(jrch)) then
                   xx = vol - rchstor(jrch)                                         !! BN: replaced "wtrin" with "vol"
                   rchstor(jrch) = 0.
@@ -216,7 +216,7 @@
                 end if
                 if (xx > 0.) then
                   rtwtr = rtwtr - xx
-                  rtwtr = amax1(0., rtwtr)
+                  rtwtr = dmax1(0., rtwtr)
                 end if
 
                 !! advance irrigation operation number

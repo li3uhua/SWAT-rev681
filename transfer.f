@@ -123,7 +123,7 @@
       use parm
 
       integer :: k, ii
-      real :: volum, tranmx, ratio
+      real*8 :: volum, tranmx, ratio
 
 !! check beg/end months summer or winter
       if (mo_transb(inum5) < mo_transe(inum5)) then

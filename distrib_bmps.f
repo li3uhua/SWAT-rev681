@@ -35,11 +35,11 @@
       implicit none
       
       integer :: kk,sb,ii
-      real :: sub_ha,bmpfr
-      real, dimension(4,0:nstep) :: sf_totalflw,sf_totaltss,ri_totalflw
-      real, dimension(4,0:nstep) :: ri_totaltss
-      real, dimension(4,0:nstep) :: sfflw,sfsed,riflw,rised !dimensions: 1=inflow/outflow, 2=pond id, 3=time step
-      real, dimension(4,0:nstep) :: spqm3,spsed,ftqm3,ftsed,riqm3
+      real*8 :: sub_ha,bmpfr
+      real*8, dimension(4,0:nstep) :: sf_totalflw,sf_totaltss,ri_totalflw
+      real*8, dimension(4,0:nstep) :: ri_totaltss
+      real*8, dimension(4,0:nstep) :: sfflw,sfsed,riflw,rised !dimensions: 1=inflow/outflow, 2=pond id, 3=time step
+      real*8, dimension(4,0:nstep) :: spqm3,spsed,ftqm3,ftsed,riqm3
       sb = inum1
       sub_ha = da_ha * sub_fr(sb)
       sf_totalflw = 0.; sf_totaltss = 0.

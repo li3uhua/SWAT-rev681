@@ -374,8 +374,8 @@
       character (len=130) :: tlu
       character (len=13) :: wwqfile
       integer :: eof, numlu
-      real :: escobsn, epcobsn
-!!      real :: r2adj_bsn  !D. Moriasi 4/8/2014    
+      real*8 :: escobsn, epcobsn
+!!      real*8 :: r2adj_bsn  !D. Moriasi 4/8/2014    
 
 !!    initialize variables
       eof = 0
@@ -714,7 +714,7 @@
 
 !!    determine the shape parameters for the equation which describes area of
 !!    snow cover as a function of amount of snow
-      call ascrv(.5,.95,sno50cov,.95,snocov1,snocov2)
+      call ascrv(5.0D-01,9.5D-01,sno50cov,9.5D-01,snocov1,snocov2)
 
 !!    calculate additional bacteria parameters
       wp20p_plt = wdpf - wgpf
@@ -729,7 +729,6 @@
       nactfr = 0.02
       abstinit = iabstr
 
-      
       close (103)
       
       if (cswat == 1) then

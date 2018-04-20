@@ -78,7 +78,7 @@
       use parm
 
       integer :: j, k
-      real :: vmma, vmm, cnv, vol, vmms, vmmd
+      real*8 :: vmma, vmm, cnv, vol, vmms, vmmd
 
       j = 0
       j = ihru

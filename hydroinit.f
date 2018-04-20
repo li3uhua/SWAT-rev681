@@ -81,7 +81,7 @@
       use parm
 
       integer :: j, l
-      real :: t_ch, scmx, xx,a,b,c
+      real*8 :: t_ch, scmx, xx, a, b, c, rto
 
       do j = 1, nhru
 
@@ -107,7 +107,7 @@
 
 !!    compute delivery ratio
       rto = tconc(j) / sub_tc(hru_sub(j))
-      dr_sub(j) = amin1(.95,rto ** .5)
+      dr_sub(j) = dmin1(.95,rto ** .5)
 
 
 !!    compute fraction of surface runoff that is reaching the main channel
@@ -166,8 +166,8 @@
         tp = .375 * tb						! time to peak flow
 	  
 	  !! convert to time step (from hr), J.Jeong March 2009
-	  tb = ceiling(tb * 60./ real(idt))
-	  tp = int(tp * 60./ real(idt))         
+	  tb = ceiling(tb * 60./ dfloat(idt))
+	  tp = int(tp * 60./ dfloat(idt))         
 	  
 	  if(tp==0) tp = 1
 	  if(tb==tp) tb = tb + 1

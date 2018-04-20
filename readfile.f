@@ -124,7 +124,7 @@
      &    pestdb, fertdb, fcstfile
 	
       character (len=80) :: titldum
-      real :: sumv, xx
+      real*8 :: sumv, xx
       integer :: rn, j, ii, eof
       eof = 0
 

@@ -300,8 +300,8 @@
       integer :: ncrp, iro, npl, mon, day, mgt_op, mgt2i, mgt1i, lcr
       integer :: nir, ifn, npst, j, nhv, inop, nhvo, nkill, newpest
       integer :: igr, nairr, nafer, nsw, nrel, icf, mgt3i
-      real :: husc, mgt6, mgt9, mgt4, mgt5, mgt7, mgt8
-      real :: disc
+      real*8 :: husc, mgt6, mgt9, mgt4, mgt5, mgt7, mgt8
+      real*8 :: disc
       
       eof = 0
       iop = 0

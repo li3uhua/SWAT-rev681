@@ -50,7 +50,7 @@
       use parm
 
       integer :: sb, ii
-      real, dimension (msubo) :: pdvab, pdvb
+      real*8, dimension (msubo) :: pdvab, pdvb
 
       do sb = 1, subtot
 

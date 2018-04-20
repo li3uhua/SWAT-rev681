@@ -91,7 +91,7 @@
       use parm
 
       integer :: j, j1, nn, k, sb,isp, ii
-      real :: lid_cuminf_total
+      real*8 :: lid_cuminf_total
       
       lid_cuminf_total = 0.
 
@@ -303,7 +303,7 @@
         end do
         if (sumqtile > 0.) then
           qtile = qtile - sumqtile
-          qtile = amax1(0., qtile)
+          qtile = dmax1(0., qtile)
         end if
       end if
 

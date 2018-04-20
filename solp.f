@@ -59,7 +59,7 @@
       use parm
 
       integer :: j
-      real :: xx, vap
+      real*8 :: xx, vap
 
       j = 0
       j = ihru
