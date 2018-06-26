@@ -511,7 +511,7 @@
                   LSCTA=LSCTP
                   LSNTA=LSNTP
                   LSLCTA=LSLCTP
-                  LSLNCAT=LSLNCTP
+                  LSLNCTA=LSLNCTP
               END IF
               IF(CPN2>0.)THEN
                   LMCTA=LMCTP*X3

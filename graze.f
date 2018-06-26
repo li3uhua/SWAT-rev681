@@ -172,6 +172,7 @@
 
       integer :: j, l, it
       real*8 :: dmi, dmii, gc, gc1, swf, frt_t, xx
+      real*8 :: LMF, LSF
 
       j = 0
       j = ihru
