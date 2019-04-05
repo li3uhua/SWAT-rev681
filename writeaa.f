@@ -562,12 +562,12 @@
       end if
 
 !! write life span of septic HRUs (time to first failure, years)
-	write(173,'(a50)') 'Year the first failure occured'
-      write(173,'(1/,a5,a7)') 'HRU','Failyr'
+	write(173,'(1/,a50)') ' Year the first failure occurred'
+      write(173,'(1/,20x,a5,a7)') 'HRU',' Failyr'
       do j=1,nhru
 	  if (isep_opt(j)/=0) then
-	    if(failyr(j)==0) write(173,'(i5,a7)') j,'No Fail'
-	    if(failyr(j)/=0) write(173,'(i5,f7.3)') j,failyr(j)
+	    if(failyr(j)==0) write(173,'(20x,i5,a8)') j,' No Fail'
+	    if(failyr(j)/=0) write(173,'(20x,i5,f7.3)') j,failyr(j)
         end if
       end do
 

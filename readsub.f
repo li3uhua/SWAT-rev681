@@ -274,6 +274,7 @@
 	      call caps(sdrfile)
 	      open (112,file=sdrfile)
 	      call readsdr
+            if (sdrain(ihru) <= 0.) sdrain(ihru) = sdrain_bsn   !! todd campbell 06/07/18
           else
             if (re(ihru) <= 0.) re(ihru) = re_bsn
             if (sdrain(ihru) <= 0.) sdrain(ihru) = sdrain_bsn

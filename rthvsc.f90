@@ -196,13 +196,13 @@
                 C = MIN(.99,2.*DTHY/(2.*TT+DTHY))
                 Q1 = C * SIA !Q1 is outflow m3/s Eq(15) in Jeong et al. (2014)
                 GQ = Q1 - G1                                                                       
-                    IF (abs(GQ/G1) < .001) EXIT
+                    IF (abs(GQ/(G1+0.0001)) < .001) EXIT
                     IF (GQ > 0.)THEN
                         GL = G1
                     ELSE
                         GB = G1
                     END IF
-                    G1 = .5 * (GB + GL)
+                    G1 = .5 * (GB + GL)+0.0001
                     IF (GB-GL < .001)EXIT                                                         
             END DO
             QO2 = MAX(.01,G1)                                                  
