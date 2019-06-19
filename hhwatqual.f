@@ -241,7 +241,7 @@
        wtrin = 0.
        wtrin = hhvaroute(2,inum2,ii) * (1. - rnum1)
 
-       if (hrtwtr(ii) / (idt * 60.) > 0.01) then
+       if (hrtwtr(ii) / (idt * 60.) > 0.01.and.hdepth(ii) > 0.01) then
 !! concentrations
          !! initialize inflow concentrations
          chlin = 0.
