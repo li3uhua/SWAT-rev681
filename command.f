@@ -154,7 +154,7 @@
             call recmon
             call sumhyd
           case (8) 
-            call recyear
+            call recyear            
             call sumhyd
           case (9) 
             call save
