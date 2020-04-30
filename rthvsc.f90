@@ -66,7 +66,6 @@
 !!    inhyd       |none          |inflow hydrograph storage location number
 !!    jrch        |none          |reach number
 !!    p           |m             |wetted perimeter
-!!    scoef       |none          |storage coefficient
 !!    nstep       |none          |No. of steps in a day (depends on model operational time step)
 !!    topw        |m             |width of channel at water level
 !!    vol         |m^3 H2O       |volume of water in reach
@@ -81,18 +80,16 @@
 
       use parm
 
-      integer :: jrch, ii, inhyd,j,l,cday,istep
-      real :: wtrin, c, p, scoef
-      real :: vol, topw,pcpday
-      real*8, dimension(nstep*5) :: QMS, QMSI,pcp
+      integer :: jrch, ii, inhyd,j,l
+      real :: wtrin, c, p
+      real :: vol, topw
+      real*8, dimension(nstep*100) :: QMS, QMSI
       real*8 :: ai, aii, ao, cbw, chw, fpw, g1, qi2, sss, xflo, zch, zi, zii, zo
 
       QMS = 0.
       QMSI = 0.
       hrtevp = 0.
       hrttlc = 0.
-      pcp(1:nstep) = precipdt(1:nstep)
-      pcpday=precipday
       
       jrch = inum1
       inhyd = inum2
