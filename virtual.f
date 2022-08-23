@@ -288,6 +288,10 @@
         sub_wyld(sb) = sub_wyld(sb) + qdr(j) * hru_fr(j)
         sub_latq(sb) = sub_latq(sb) + latq(j) * hru_fr(j)
         sub_subp_dt(sb,:) = sub_subp_dt(sb,:) + rainsub(j,:) * hru_fr(j) !!urban modeling by J.Jeong
+        
+        !! SAS variable aggregation in subbasin level (water)
+        sas_qin(sb) = sas_qin(sb) + sas_qin_hru(j) * hru_fr(j)
+        sas_qout(sb) = sas_qout(sb) + sas_qout_hru(j) * hru_fr(j)
 
       !! subbasin averages: sub-daily water for URBAN MODELING
         if (ievent>0) then

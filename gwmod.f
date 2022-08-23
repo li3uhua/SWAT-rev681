@@ -87,6 +87,9 @@
       twlpnd(j) = 0.
       twlwet(j) = 0.
       
+!! Cacluate inflow to the SAS compartment (NOTE: set sas_qin_hru = 0 at the starting of every time step)
+      sas_qin_hru(j) = sas_qin_hru(j) + sepbtm(j) + gwq_ru(j) + rchrg_karst
+
 !! compute shallow aquifer level for current day, assumes karst losses 
 !! infiltrate at the same speed as what goes through the soil profile.
       rchrg(j) = 0.
@@ -127,6 +130,9 @@
         end if
       end if
 
+!! remove groundwater revap out of the SAS compartment
+      sas_qin_hru(j) = sas_qin_hru(j) - revapday
+
 !! remove ground water flow from shallow aquifer storage
       if (shallst(j) >= gwqmn(j)) then
         shallst(j) = shallst(j) - gw_q(j)
@@ -137,6 +143,9 @@
        else
         gw_q(j) = 0.
       end if
+
+!! outflow out of the SAS compartment (NOTE: set sas_qin_hru = 0 at the starting of every time step)
+      sas_qout_hru(j) = sas_qout_hru(j) + gw_q(j)
 
       return
       end

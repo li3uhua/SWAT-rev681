@@ -250,5 +250,11 @@
       !!add by zhang
       !!==========================
 	
+!! set initial values for SAS
+      sas_qin_hru = 0.
+      sas_qout_hru = 0.
+      sas_qin = 0.
+      sas_qout = 0.
+
       return
       end
