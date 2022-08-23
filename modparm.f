@@ -1,7 +1,16 @@
       module parm
       integer icalen
       real*8 :: prf_bsn
-            
+
+!!    SAS variables
+      real*8, dimension (:), allocatable :: sas_qin     !inflow to the SAS compartment
+      real*8, dimension (:), allocatable :: sas_cqin    !concentration in sas_qin
+      real*8, dimension (:), allocatable :: sas_qout    !outflow out of the SAS compartment
+      real*8, dimension (:), allocatable :: sas_cqout   !concentration in sas_qout    
+      real*8, dimension (:), allocatable :: sas_a       !a parameter of the sas function (when sas is beta function)
+      real*8, dimension (:), allocatable :: sas_b       !b ........................................................
+      real*8, dimension (:), allocatable :: sas_k       !first oder decay of solute in the sas compartment
+
 !!    srin - co2 (EPA)
       real*8 :: co2_x2, co2_x
            
