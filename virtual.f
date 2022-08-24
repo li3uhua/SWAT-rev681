@@ -347,13 +347,22 @@
  !       sub_tileq(sb) = sub_tileq(sb) + tileq(j) * hru_fr(j)      !! jane f
         sub_tileq(sb) = sub_tileq(sb) + qtile * hru_fr(j)          !! jane f
         sub_vaptile(sb) = sub_vaptile(sb) + vap_tile * hru_fr(j)   !! jane f
-        sub_gwno3(sb) = sub_gwno3(sb) + no3gw(j) * hru_fr(j) 
+        !sub_gwno3(sb) = sub_gwno3(sb) + no3gw(j) * hru_fr(j) 
         sub_solp(sb) = sub_solp(sb) + surqsolp(j) * hru_fr(j)
         sub_gwsolp(sb) = sub_gwsolp(sb) + minpgw(j) * hru_fr(j)
         sub_yorgn(sb) = sub_yorgn(sb) + sedorgn(j) * hru_fr(j)
         sub_yorgp(sb) = sub_yorgp(sb) + sedorgp(j) * hru_fr(j)
         sub_sedpa(sb) = sub_sedpa(sb) + sedminpa(j) * hru_fr(j)
         sub_sedps(sb) = sub_sedps(sb) + sedminps(j) * hru_fr(j)
+
+      !! SAS variable aggregation in subbasin level (nitrogen)
+        sas_cqin(sb) = sas_cqin(sb) + sas_cqin_hru(j) * hru_fr(j)
+        
+        !SAS module (calculating sas_cqout in subbasin level)
+        !sas_cqout(sb) = ...
+        
+        !update subbasin nitrogen output (convert mg/L back to kg/ha)
+        sub_gwno3(sb) = sub_gwno3(sb) + sas_cqout(sb)*sas_qout(sb)/100
 
       !! subbasin averages: pesticides
         if (irtpest > 0) then
