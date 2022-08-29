@@ -132,7 +132,7 @@
 
       use parm
 
-      integer :: j,sb,kk
+      integer :: j,sb,kk,isas
       real*8 :: tmpk, d, gma, ho, pet_alpha, aphu, phuop
 
       ihru = 0
@@ -455,10 +455,21 @@
       !! summarize output for multiple HRUs per subbasin
       !! store reach loadings for new fig method
       call virtual
+
       aird(j) = 0.
       
       ihru = ihru + 1
       end do
+
+      ! get sas_cqin in mg/L
+      ! if percolation is very small then concentration in percolation is set to zero
+       do isas = 1, size(sas_qin)
+         if (sas_qin(isas) < 0.01)
+           sas_cqin(:) = 0.0
+         else
+           sas_cqin(:) = sas_cqin(:)/sas_qin(:)
+         end if
+       end do
 
       !! route 2 landscape units
       if (ils2flag(inum1) > 0) then

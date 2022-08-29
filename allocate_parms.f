@@ -65,9 +65,9 @@
       allocate(sas_cqin_hru(mhru))
       allocate(sas_qout_hru(mhru))
 
-      allocate(sas_qin(mhru))
-      allocate(sas_cqin(mhru))
-      allocate(sas_qout(mhru))
+      allocate(sas_qin(msub))
+      allocate(sas_cqin(msub))
+      allocate(sas_qout(msub))
       allocate(sas_cqout(msub))
 
       allocate(sas_a(msub))

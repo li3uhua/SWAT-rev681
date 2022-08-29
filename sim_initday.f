@@ -251,10 +251,15 @@
       !!==========================
 	
 !! set initial values for SAS
-      sas_qin_hru = 0.
-      sas_qout_hru = 0.
-      sas_qin = 0.
-      sas_qout = 0.
+      !initial values for fluxes
+      sas_qin_hru(:) = 0.0
+      sas_qout_hru(:) = 0.0
+      sas_qin(:) = 0.0
+      sas_qout(:) = 0.0
+      !initial condition for concentrations
+      sas_cqin(:) = 0.0
+      sas_cqout(:) = 0.0 
+      sas_cqin_hru(:) = 0.0     
 
       return
       end
