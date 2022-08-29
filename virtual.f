@@ -359,7 +359,7 @@
         sas_cqin(sb) = sas_cqin(sb) + sas_cqin_hru(j) * hru_fr(j) * sas_qin_hru(j)
 
 !!deleteme - print to screen
-print*, "subbasin number = ", sb, " hru number = ", j
+        print(*,*), "subbasin number = ", sb, " hru number = ", j
 
         !SAS module (calculating sas_cqout in subbasin level)
         !sas_cqout(sb) = ...
