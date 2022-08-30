@@ -463,13 +463,13 @@
 
       ! get sas_cqin in mg/L
       ! if percolation is very small then concentration in percolation is set to zero
-       do isas = 1, size(sas_qin)
-         if (sas_qin(isas) < 0.01)
-           sas_cqin(:) = 0.0
-         else
-           sas_cqin(:) = sas_cqin(:)/sas_qin(:)
-         end if
-       end do
+      do isas = 1, size(sas_qin)
+        if (sas_qin(isas) < 0.01) then
+          sas_cqin(:) = 0.0
+        else
+          sas_cqin(:) = sas_cqin(:)/sas_qin(:)
+        endif
+      end do
 
       !! route 2 landscape units
       if (ils2flag(inum1) > 0) then

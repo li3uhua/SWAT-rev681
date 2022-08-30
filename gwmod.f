@@ -131,7 +131,10 @@
       end if
 
 !! remove groundwater revap out of the SAS compartment
-      sas_qin_hru(j) = sas_qin_hru(j) - revapday
+      ! check later (negative values, add revap in master equation later)
+      ! sas_qin_hru(j) = sas_qin_hru(j) - revapday  
+!! deleteme 
+      ! print*,sas_qin_hru(j), j
 
 !! remove ground water flow from shallow aquifer storage
       if (shallst(j) >= gwqmn(j)) then

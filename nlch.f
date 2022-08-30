@@ -155,7 +155,12 @@
       percn(j) = percnlyr
 
       !! sas nutient input (convert kg/ha to mg/L)
-      sas_cqin_hru(j) = sas_cqin_hru(j) + percn(j)/sas_cqin(j)*100
+      ! if percolation is very small then concentration in percolation is set to zero
+      if (sas_qin_hru(j) < 0.01) then
+        sas_cqin_hru(j) = 0.0
+      else
+        sas_cqin_hru(j) = sas_cqin_hru(j) + percn(j)/sas_qin_hru(j)*100
+      end if
 
       nloss = (2.18 * dis_stream(j) - 8.63) / 100.
       nloss = dmax1(0.,nloss)
