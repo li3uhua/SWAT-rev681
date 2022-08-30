@@ -359,10 +359,7 @@
         sas_cqin(sb) = sas_cqin(sb) + sas_cqin_hru(j) * hru_fr(j) * sas_qin_hru(j)
 
 !!deleteme - print to screen
-        print(*,*), "subbasin number = ", sb, " hru number = ", j
-
-        !SAS module (calculating sas_cqout in subbasin level)
-        !sas_cqout(sb) = ...
+        !!print*, sas_cqin_hru(j), hru_fr(j) ,sas_qin_hru(j)
         
         !update subbasin nitrogen output (convert mg/L back to kg/ha)
         sub_gwno3(sb) = sub_gwno3(sb) + sas_cqout(sb)*sas_qout(sb)/100
