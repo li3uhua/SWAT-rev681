@@ -131,6 +131,7 @@
 !!    ~ ~ ~ ~ ~ ~ END SPECIFICATIONS ~ ~ ~ ~ ~ ~
 
       use parm
+      use mo_sas_master_equation,     only:master_equation ! master_equation is needed
 
       integer :: j,sb,kk,isas
       real*8 :: tmpk, d, gma, ho, pet_alpha, aphu, phuop
@@ -469,6 +470,21 @@
         else
           sas_cqin(:) = sas_cqin(:)/sas_qin(:)
         endif
+      call master_equation(sas_sub(isas), 
+     &                            sas_qin(isas), 
+     &                            sas_cqin(isas),
+     &                            sas_qout(isas),
+     &                            sas_cqout(isas),
+     &                            100000,
+     &                            max_old_fraction,
+     &                            1,
+     &                            sas_out(isas)%median_tt,
+     &                            sas_out(isas)%median_rt,
+     &                            sas_out(isas)%mean_rt,
+     &                            sas_out(isas)%mean_tt,
+     &                            sas_out(isas)%denitri_amount,
+     &                            sas_out(isas)%subNstore,
+     &                            sas_out(isas)%age_rank_discharge)
       end do
 
       !! route 2 landscape units

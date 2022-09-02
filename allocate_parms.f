@@ -74,6 +74,9 @@
       allocate(sas_b(msub))
       allocate(sas_k(msub))
 
+      allocate(sas_sub(msub))
+      allocate(sas_out(msub))
+      
       allocate (surlag(mhru))
       allocate (cdn(mhru))
       allocate (cmn(mhru))
