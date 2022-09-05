@@ -462,30 +462,41 @@
       ihru = ihru + 1
       end do
 
-      ! get sas_cqin in mg/L
-      ! if percolation is very small then concentration in percolation is set to zero
+    !==========SAS============
       do isas = 1, size(sas_qin)
+      ! get sas_cqin in mg/L
+        ! if percolation is very small then concentration in percolation is set to zero
         if (sas_qin(isas) < 0.01) then
           sas_cqin(:) = 0.0
         else
           sas_cqin(:) = sas_cqin(:)/sas_qin(:)
         endif
+
+      ! set sas parameters
+        sas_sub(isas)%ka = 0.5
+        sas_sub(isas)%b = 0.6
+        sas_sub(isas)%half_life = 0.6
+        max_old_fraction = 0.000001
+        
+      ! call master_equ function
       call master_equation(sas_sub(isas), 
-     &                            sas_qin(isas), 
-     &                            sas_cqin(isas),
-     &                            sas_qout(isas),
-     &                            sas_cqout(isas),
-     &                            100000,
-     &                            max_old_fraction,
-     &                            1,
-     &                            sas_out(isas)%median_tt,
-     &                            sas_out(isas)%median_rt,
-     &                            sas_out(isas)%mean_rt,
-     &                            sas_out(isas)%mean_tt,
-     &                            sas_out(isas)%denitri_amount,
-     &                            sas_out(isas)%subNstore,
-     &                            sas_out(isas)%age_rank_discharge)
+     &                     sas_qin(isas), 
+     &                     sas_cqin(isas),
+     &                     sas_qout(isas),
+     &                     sas_cqout(isas),
+     &                     100000,
+     &                     max_old_fraction,
+     &                     2,
+     &                     sas_out(isas)%median_tt,
+     &                     sas_out(isas)%median_rt,
+     &                     sas_out(isas)%mean_rt,
+     &                     sas_out(isas)%mean_tt,
+     &                     sas_out(isas)%denitri_amount,
+     &                     sas_out(isas)%subNstore,
+     &                     sas_out(isas)%age_rank_discharge)
+
       end do
+    !===========SAS===========
 
       !! route 2 landscape units
       if (ils2flag(inum1) > 0) then

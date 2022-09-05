@@ -79,7 +79,16 @@
       call headout
       
       !call sw_init
-
+      !=========sas==========
+      do i = 1, msub
+        allocate(sas_sub(i)%stor_age(1))
+        allocate(sas_sub(i)%conc_age(1))
+        !initial condition, move to init later
+        sas_sub(i)%stor_age = 750.0 !initial groundwater storage in mm
+        sas_sub(i)%conc_age = 2.0   !initial groundwater nitrate concentration in mg?L   
+      end do
+      !=========sas==========
+      
       !! convert integer to string for output.mgt file
       subnum = ""
       hruno = ""

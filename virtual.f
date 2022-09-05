@@ -358,11 +358,6 @@
       !! SAS variable aggregation in subbasin level (nitrogen)
         sas_cqin(sb) = sas_cqin(sb) + sas_cqin_hru(j) * hru_fr(j) * sas_qin_hru(j)
 
-!!deleteme - print to screen
-        !!print*, sas_cqin_hru(j), hru_fr(j) ,sas_qin_hru(j)
-        
-        !update subbasin nitrogen output (convert mg/L back to kg/ha)
-        sub_gwno3(sb) = sub_gwno3(sb) + sas_cqout(sb)*sas_qout(sb)/100
 
       !! subbasin averages: pesticides
         if (irtpest > 0) then
@@ -549,6 +544,9 @@
                                                   !!sedorgp & sedminps
          varoute(6,ihout) = (sub_no3(sb) + sub_latno3(sb) +             
      &      sub_tileno3(sb) + sub_gwno3(sb)) * sub_ha          !!surqno3 & latno3 & no3gw
+         !deleteme
+         !print*, "varoute counter: ", "ihout = ", ihout, "sb = ", sb
+         !print*,sub_no3(sb),sub_latno3(sb),sub_gwno3(sb)
          varoute(7,ihout) = (sub_solp(sb) + sub_gwsolp(sb)) * sub_ha   !!surqsolp & minpgw & sedminpa
          varoute(8,ihout) = 0.
          varoute(9,ihout) = 0.
