@@ -105,12 +105,13 @@ contains
 
     !check maximum age in storage
     tmax = size(sas%stor_age)
-
+    
     !Denitrification amount (regarless of how much N is exported in discharge)
     denitri_amount = 0.01 *                                                                      &
                      sum((/inflow, sas%stor_age(:) - (/real*8 :: 0.0, sas%stor_age(1:(tmax - 1))/)/)*  &
                          (/in_conc, sas%conc_age/) * (1.0 - exp(-sas%half_life)))
 
+    !print*, tmax, sas%stor_age(tmax)
     !youngest water in storage
     allocate(stor_age(1))
     stor_age(:) = eval_sas((/sas%stor_age(1)/sas%stor_age(tmax)/), sas_function, ka, b)
@@ -119,6 +120,7 @@ contains
     !update normalized age-ranked storage [0,1]
     allocate(norm_age_rank_stor(tmax + 1))
     norm_age_rank_stor(:) = (/0 + age_1, sas%stor_age(:) + age_1/)/ (sas%stor_age(tmax) + age_1)
+    !print*,"ok",norm_age_rank_stor(:)
 
     !evaluate the sas function over the normalized age-ranked storage
     allocate(sas_orig(tmax + 1))
@@ -138,55 +140,80 @@ contains
     !calculate age_rank discharge (the amount of discharge with age < Ti)
     allocate(age_rank_discharge(tmax + 1))
     age_rank_discharge(:) = outflow * sas_orig(:)
+    !print*, outflow, age_rank_discharge(:)
+    !pause
+    !print*,"beginning value",age_rank_discharge(:)
+    !print*,"beginning value",outflow
+    !print*,"beginning value",sas_orig(:)
 
     !derivative of stor_age and age_rank_discharge (the volume of storage or discharge with age Ti)
     stor_age(:) = stor_age(:) - (/real*8 :: 0.0, stor_age(1:tmax)/)
-    age_rank_discharge(:) =  age_rank_discharge(:) - (/real*8 :: 0.0, age_rank_discharge(1:tmax)/)
 
-    !initialize residual discharge
-    residual_discharge = 0.0
+    ! if there is no outflow, everthing in outflow is zero
+    if (outflow .le. 1.0e-6) then
+      age_rank_discharge(:) = 0.0
+    
+      !update sas
+      sas_orig(:) = 0.0
+    else 
+      age_rank_discharge(:) =  age_rank_discharge(:) - (/real*8 :: 0.0, age_rank_discharge(1:tmax)/)
 
-    do i = 1, tmax + 1
-
-      !takes water of this age if residual_discharge > 0.0
-      age_rank_discharge(i) = age_rank_discharge(i) + residual_discharge
-
-      !update residual discharge
+      !initialize residual discharge
       residual_discharge = 0.0
+  
+      do i = 1, tmax + 1
+  
+        !takes water of this age if residual_discharge > 0.0
+        age_rank_discharge(i) = age_rank_discharge(i) + residual_discharge
+        !print*,"beginning value",age_rank_discharge(i)
+  
+        !update residual discharge
+        residual_discharge = 0.0
+  
+        if (age_rank_discharge(i) .le. stor_age(i)) then
+  
+          !update storage
+          stor_age(i) = stor_age(i) - age_rank_discharge(i)
+  
+        else
+  
+          !remaining discharge that needs to be taken from older ages
+          residual_discharge = age_rank_discharge(i) - stor_age(i)
+  
+          !update age rank discharge
+          age_rank_discharge(i) = stor_age(i)
+          !print*,age_rank_discharge(i)
+  
+          !update stor_age
+          stor_age(i) = 0.0
+  
+        end if
+  
+      end do
+  
+      !If with oldest discharge there is no water for outlow, take from all ages (volume weighted)
+      age_rank_discharge(:) = age_rank_discharge(:) + residual_discharge * stor_age(:)/sum(stor_age) 
+      stor_age(:) =  stor_age(:) - residual_discharge * stor_age(:)/sum(stor_age)
 
-      if (age_rank_discharge(i) .le. stor_age(i)) then
-
-        !update storage
-        stor_age(i) = stor_age(i) - age_rank_discharge(i)
-
-      else
-
-        !remaining discharge that needs to be taken from older ages
-        residual_discharge = age_rank_discharge(i) - stor_age(i)
-
-        !update age rank discharge
-        age_rank_discharge(i) = stor_age(i)
-
-        !update stor_age
-        stor_age(i) = 0.0
-
-      end if
-
-    end do
-
-    !If with oldest discharge there is no water for outlow, take from all ages (volume weighted)
-    age_rank_discharge(:) = age_rank_discharge(:) + residual_discharge * stor_age(:)/sum(stor_age) 
-    stor_age(:) =  stor_age(:) - residual_discharge * stor_age(:)/sum(stor_age)
+      !update sas
+      sas_orig(:) = age_rank_discharge(:)/age_rank_discharge(tmax + 1)
+    end if
 
     !Subsurface N storage
     sub_n_stor = 0.01 * sum(exp(-sas%half_life) * (/in_conc, sas%conc_age(:)/) * stor_age(:))
 
     !convert back to cummulative sum of stor_age and age_rank_discharge
     stor_age(:) = cumsum(stor_age)
+    !print*, stor_age(:)
+    !0
     age_rank_discharge(:) =  cumsum(age_rank_discharge)
+    !print*, age_rank_discharge(:)
+    !0
 
-    !update sas
-    sas_orig(:) = age_rank_discharge(:)/age_rank_discharge(tmax + 1)
+
+    !print*, age_rank_discharge(tmax + 1)
+    !print*, sas_orig(:)
+    !age_rank_discharge = 0
     !*************************************************************end Master Equation
 
     !update solute concentration in each parcel
@@ -196,9 +223,15 @@ contains
     !calcuate pQ * dT
     allocate(deriv_sas(tmax + 1))
     deriv_sas(:) = sas_orig(:) - (/real*8 :: 0.0, sas_orig(1:tmax)/)
+    print*,sas_orig(:)
+    !print*,"sas_orig(1:tmax) ",sas_orig(1:tmax)
 
     !solute concentration in the outflow
     out_conc = sum(conc_age(:) * deriv_sas(:))
+    !print*,"concentration ", conc_age(:)
+    !print*,"deriv_sas ",deriv_sas(:)
+    print*,"conc ", out_conc, outflow
+    pause
 
     !initialized output (median transit time and residence time)
     median_tt = 1
@@ -209,13 +242,18 @@ contains
     !calcualte median TT, RT50
     do i = 1, size(sas_orig)
 
-      if (sas_orig(i) < 0.5) median_tt = i
-
-      if (i == 1) then
-        mean_tt = mean_tt + sas_orig(i)
+      if (outflow .le. 1.0e-6) then
+        median_tt = 0.0
       else
-        mean_tt = mean_tt + (sas_orig(i) - sas_orig(i-1)) * i
+        if (sas_orig(i) < 0.5) median_tt = i
+
+        if (i == 1) then
+          mean_tt = mean_tt + sas_orig(i)
+        else
+          mean_tt = mean_tt + (sas_orig(i) - sas_orig(i-1)) * i
+        end if
       end if
+
 
       if (stor_age(i)/stor_age(tmax + 1) < 0.5) median_rt = i
     end do
