@@ -84,7 +84,7 @@
         allocate(sas_sub(i)%stor_age(1))
         allocate(sas_sub(i)%conc_age(1))
         !initial condition, move to init later
-        sas_sub(i)%stor_age = 750.0 !initial groundwater storage in mm
+        sas_sub(i)%stor_age = 5000.0 !initial groundwater storage in mm
         sas_sub(i)%conc_age = 2.0   !initial groundwater nitrate concentration in mg?L   
       end do
       !=========sas==========

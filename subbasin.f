@@ -486,7 +486,7 @@
      &                     sas_cqout(isas),
      &                     100000,
      &                     max_old_fraction,
-     &                     2,
+     &                     1,
      &                     sas_out(isas)%median_tt,
      &                     sas_out(isas)%median_rt,
      &                     sas_out(isas)%mean_rt,
@@ -495,6 +495,14 @@
      &                     sas_out(isas)%subNstore,
      &                     sas_out(isas)%age_rank_discharge)
 
+      ! update subbasin nitrogen output (convert mg/L back to kg/ha)
+      sub_gwno3(isas) = sub_gwno3(isas) + sas_cqout(isas)*sas_qout(isas)/100.0
+      !print*,sub_gwno3(isas),sas_cqout(isas),sas_qout(isas) !NaN sas_cqout(isas)
+ 
+      ! update the nitrate amount for routing
+      varoute(6,isas) = (sub_no3(isas) + sub_latno3(isas) +             
+     &      sub_tileno3(isas) + sub_gwno3(isas)) * da_ha * sub_fr(isas)          !!surqno3 & latno3 & no3gw
+      !print*, varoute (6,isas)
       end do
     !===========SAS===========
 
