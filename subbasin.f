@@ -497,12 +497,13 @@
 
       ! update subbasin nitrogen output (convert mg/L back to kg/ha)
       sub_gwno3(isas) = sub_gwno3(isas) + sas_cqout(isas)*sas_qout(isas)/100.0
-      !print*,sub_gwno3(isas),sas_cqout(isas),sas_qout(isas) !NaN sas_cqout(isas)
+      print*,"isas = ",isas,"sub_gwno3(isas) = ",sub_gwno3(isas),sas_cqout(isas),sas_qout(isas)
  
       ! update the nitrate amount for routing
       varoute(6,isas) = (sub_no3(isas) + sub_latno3(isas) +             
      &      sub_tileno3(isas) + sub_gwno3(isas)) * da_ha * sub_fr(isas)          !!surqno3 & latno3 & no3gw
-      !print*, varoute (6,isas)
+      print*, varoute (6,isas)
+      pause
       end do
     !===========SAS===========
 
