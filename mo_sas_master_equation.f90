@@ -111,7 +111,6 @@ contains
                      sum((/inflow, sas%stor_age(:) - (/real*8 :: 0.0, sas%stor_age(1:(tmax - 1))/)/)*  &
                          (/in_conc, sas%conc_age/) * (1.0 - exp(-sas%half_life)))
 
-    !print*, tmax, sas%stor_age(tmax)
     !youngest water in storage
     allocate(stor_age(1))
     stor_age(:) = eval_sas((/sas%stor_age(1)/sas%stor_age(tmax)/), sas_function, ka, b)
@@ -175,7 +174,6 @@ contains
   
           !update age rank discharge
           age_rank_discharge(i) = stor_age(i)
-          !print*,age_rank_discharge(i)
   
           !update stor_age
           stor_age(i) = 0.0
@@ -189,7 +187,7 @@ contains
       stor_age(:) =  stor_age(:) - residual_discharge * stor_age(:)/sum(stor_age)
 
       !update sas
-      sas_orig(:) = cumsum(age_rank_discharge)/sum(age_rank_discharge)
+      sas_orig(:) = cumsum(age_rank_discharge)/sum(age_rank_discharge) !fixed error negative outflow concentration
     end if
 
     !Subsurface N storage
@@ -211,9 +209,6 @@ contains
 
     !solute concentration in the outflow
     out_conc = sum(conc_age(:) * deriv_sas(:))
-    !print*,"concentration ", conc_age(:)
-    !print*,"deriv_sas ",deriv_sas(:)
-    print*,"conc ", out_conc, outflow
 
     !initialized output (median transit time and residence time)
     median_tt = 1
@@ -232,7 +227,7 @@ contains
         if (i == 1) then
           mean_tt = mean_tt + sas_orig(i)
         else
-          mean_tt = mean_tt + (sas_orig(i) - sas_orig(i-1)) * i !?
+          mean_tt = mean_tt + (sas_orig(i) - sas_orig(i-1)) * i
         end if
       end if
 
