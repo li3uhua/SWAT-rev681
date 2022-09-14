@@ -347,7 +347,7 @@
  !       sub_tileq(sb) = sub_tileq(sb) + tileq(j) * hru_fr(j)      !! jane f
         sub_tileq(sb) = sub_tileq(sb) + qtile * hru_fr(j)          !! jane f
         sub_vaptile(sb) = sub_vaptile(sb) + vap_tile * hru_fr(j)   !! jane f
-        !sub_gwno3(sb) = sub_gwno3(sb) + no3gw(j) * hru_fr(j) 
+        !sub_gwno3(sb) = sub_gwno3(sb) + no3gw(j) * hru_fr(j)  !comment out original no3 calculation
         sub_solp(sb) = sub_solp(sb) + surqsolp(j) * hru_fr(j)
         sub_gwsolp(sb) = sub_gwsolp(sb) + minpgw(j) * hru_fr(j)
         sub_yorgn(sb) = sub_yorgn(sb) + sedorgn(j) * hru_fr(j)
@@ -542,6 +542,7 @@
          varoute(5,ihout) = (sub_yorgp(sb) + sub_sedps(sb) +
      &                  sub_sedpa(sb)) * sub_ha          !!sedorgp & sedminps
                                                   !!sedorgp & sedminps
+     !comment out original no3 calculation for routing
 !         varoute(6,ihout) = (sub_no3(sb) + sub_latno3(sb) +             
 !     &      sub_tileno3(sb) + sub_gwno3(sb)) * sub_ha          !!surqno3 & latno3 & no3gw
          varoute(7,ihout) = (sub_solp(sb) + sub_gwsolp(sb)) * sub_ha   !!surqsolp & minpgw & sedminpa
