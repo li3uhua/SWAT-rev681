@@ -1,4 +1,7 @@
       module parm
+      
+      use mo_sas_global_variables
+      
       integer icalen
       real*8 :: prf_bsn
 
@@ -7,38 +10,13 @@
       real*8, dimension (:), allocatable :: sas_cqin    !concentration in sas_qin
       real*8, dimension (:), allocatable :: sas_qout    !outflow out of the SAS compartment
       real*8, dimension (:), allocatable :: sas_cqout   !concentration in sas_qout    
-      real*8, dimension (:), allocatable :: sas_a       !a parameter of the sas function (when sas is beta function)
-      real*8, dimension (:), allocatable :: sas_b       !b ........................................................
-      real*8, dimension (:), allocatable :: sas_k       !first oder decay of solute in the sas compartment
 
 !!    SAS variables in hru level
       real*8, dimension (:), allocatable :: sas_qin_hru     !inflow to the SAS compartment at the hru level
       real*8, dimension (:), allocatable :: sas_cqin_hru    !concentration in sas_qin at the hru level
       real*8, dimension (:), allocatable :: sas_qout_hru    !outflow out of the SAS compartment at the hru level
 
-!!    SAS module parameters (mo_sas_global_variables.f90)
-      type sas_para
-        real*8, dimension(:), allocatable              :: stor_age       ! Residence time distribution
-        real*8, dimension(:), allocatable              :: conc_age       ! Concentration distribution
-        real*8                                         :: ka             ! k (or a) parameter of the powerlaw (or beta)
-        real*8                                         :: b              ! beta parameter (b)
-        real*8                                         :: half_life      ! half_life of nitrate [timestep] !change to ln(2)/half_life
-      end type sas_para
-      type(sas_para), dimension(:), allocatable, public :: sas_sub
- 
-      type sas_output
-        integer                              :: median_tt 
-        integer                              :: median_rt
-        real*8                               :: mean_tt
-        real*8                               :: mean_rt
-        real*8                               :: denitri_amount
-        real*8                               :: subNstore
-        real*8, dimension(:), allocatable    :: age_rank_discharge
-        
-      end  type sas_output
-      type(sas_output), dimension(:), allocatable, public               :: sas_out
-
-      real*8 :: max_old_fraction
+      real*8 :: max_old_fraction = 0.000001
 
 !!    srin - co2 (EPA)
       real*8 :: co2_x2, co2_x

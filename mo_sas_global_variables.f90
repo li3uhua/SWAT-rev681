@@ -31,10 +31,10 @@ module mo_sas_global_variables
      real*8                               :: mean_tt
      real*8                               :: mean_rt
      real*8                               :: denitri_amount
-     real*8, dimension(:), allocatable    :: subNstore
+     real*8                               :: subNstore
      real*8, dimension(:), allocatable    :: age_rank_discharge
-  end  type sas_output
-
+  end type sas_output
+  
   type(sas_output), dimension(:), allocatable, public                  :: sas_out
 
 end module mo_sas_global_variables

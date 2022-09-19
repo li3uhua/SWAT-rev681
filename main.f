@@ -80,13 +80,29 @@
       
       !call sw_init
       !=========sas==========
+      open(999, file = "sas_param.par")
       do i = 1, msub
+          
         allocate(sas_sub(i)%stor_age(1))
         allocate(sas_sub(i)%conc_age(1))
-        !initial condition, move to init later
-        sas_sub(i)%stor_age = 5000.0 !initial groundwater storage in mm
-        sas_sub(i)%conc_age = 2.0   !initial groundwater nitrate concentration in mg?L   
+        
+        !initial condition, move to init later, read data from file
+        read(999, *) 
+        read(999,*) sas_sub(i)%conc_age(1)   !initial groundwater storage in mm
+        read(999,*) sas_sub(i)%stor_age(1)   !initial groundwater nitrate concentration in mg?L      
+        read(999,*) sas_sub(i)%ka            !a parameter of the beta(a,b) function 
+        read(999,*) sas_sub(i)%b             !b parameter of the beta(a,b) function  
+        read(999,*) sas_sub(i)%half_life     !half life of nitrate in groundwater 
+        
+        print*, i
+        print*, sas_sub(i)%conc_age(1)
+        print*, sas_sub(i)%stor_age(1)
+        print*, sas_sub(i)%ka
+        print*, sas_sub(i)%b
+        print*, sas_sub(i)%half_life
+        
       end do
+      close(999)
       !=========sas==========
       
       !! convert integer to string for output.mgt file
