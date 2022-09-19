@@ -131,6 +131,7 @@
 !!    ~ ~ ~ ~ ~ ~ END SPECIFICATIONS ~ ~ ~ ~ ~ ~
 
       use parm
+      
       use mo_sas_master_equation,     only:master_equation ! master_equation is needed
 
       integer :: j,sb,kk,isas
@@ -471,12 +472,6 @@
         else
           sas_cqin(:) = sas_cqin(:)/sas_qin(:)
         endif
-
-      ! set sas parameters
-        sas_sub(isas)%ka = 0.5
-        sas_sub(isas)%b = 0.6
-        sas_sub(isas)%half_life = 0.6
-        max_old_fraction = 0.000001
         
       ! call master_equ function
       call master_equation(sas_sub(isas), 
@@ -484,9 +479,9 @@
      &                     sas_cqin(isas),
      &                     sas_qout(isas),
      &                     sas_cqout(isas),
-     &                     100000,
-     &                     max_old_fraction,
-     &                     1,
+     &                     100000,                    !maximum age (days)
+     &                     max_old_fraction,          !minimum old water fraction
+     &                     2,                         !sas function = beta(ka,b)
      &                     sas_out(isas)%median_tt,
      &                     sas_out(isas)%median_rt,
      &                     sas_out(isas)%mean_rt,
