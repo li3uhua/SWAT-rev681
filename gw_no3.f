@@ -82,6 +82,10 @@
 
 !! compute nitrate aquifer loading from recharge for current day
       rchrg_n(j) = 0.
+      
+      ! nitrate leaching from the soil bottom [kg N/ha]
+      write(996, *) j, percn(j)
+      
       rchrg_n(j) = (1.- gw_delaye(j)) * percn(j) + gw_delaye(j)
      &                                                   * rchrgn1
       shallst_n(j) = shallst_n(j) + rchrg_n(j)

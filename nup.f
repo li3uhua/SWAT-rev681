@@ -166,6 +166,8 @@
           strsn(j) = dmax1(strsn(j), xx)
           strsn(j) = dmin1(strsn(j), 1.)
       end select
-
+      
+      ! n plant uptake
+      write(997,*) curyr, i, j, nplnt(j)
       return
       end

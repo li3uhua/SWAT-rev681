@@ -183,6 +183,9 @@
         sol_no3(l,j) = sol_no3(l,j) + xx * frt_kg                    *  
      &      (1. - fnh3n(ifrt)) * fminn(ifrt)
 
+      ! nitrate fertilization input [kg N/ha]
+      write(998,*) curyr,i,j,l, xx * frt_kg*(1. - fnh3n(ifrt)) * fminn(ifrt)
+
         if (cswat == 0) then
         sol_fon(l,j) = sol_fon(l,j) + rtof * xx *                       
      &     frt_kg                    * forgn(ifrt)

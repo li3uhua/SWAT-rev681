@@ -81,6 +81,13 @@
       !call sw_init
       !=========sas==========
       open(999, file = "sas_param.par")
+      open(998, file = "outfert.val")     ! fertilizer input
+      open(997, file = "outup.val")       ! plant uptake
+      open(996, file = "outleach.val")    ! n leaching
+      open(995, file = "outmindeni.val")  ! n denitrification and mineralization
+      open(990, file = "outSAS.val")      ! SAS output variables
+      open(991, file = "inSAS.val")       ! SAS input variables
+      
       do i = 1, msub
           
         allocate(sas_sub(i)%stor_age(1))

@@ -312,7 +312,7 @@
 
 !			call ndenit(k,j,cdg,wdn,0.05)
 	!!	end if
-
+      
           !! summary calculations
           if (curyr > nyskip) then
             wshd_hmn = wshd_hmn + hmn * hru_dafr(j)
@@ -327,10 +327,12 @@
             rmn2tl = rmn2tl + rmn1
             rmptl = rmptl + rmp
             wdntl = wdntl + wdn
-          end if
+          end if    
         end if
       end do
-
+      
+      ! n mineralizaiton and denitrification
+      write(995,'(i5,3f10.3)') j, hmntl, rmn2tl, wdntl
 
       return
       end
