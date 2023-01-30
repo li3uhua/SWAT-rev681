@@ -288,6 +288,11 @@
         sub_wyld(sb) = sub_wyld(sb) + qdr(j) * hru_fr(j)
         sub_latq(sb) = sub_latq(sb) + latq(j) * hru_fr(j)
         sub_subp_dt(sb,:) = sub_subp_dt(sb,:) + rainsub(j,:) * hru_fr(j) !!urban modeling by J.Jeong
+        
+        !check it
+        aq_in(sb) = sub_sep(sb)
+        aq_out(sb) = sub_gwq(sb) + sub_gwq_d(sb)
+        aqstore(sb) = aqstore(sb) + shallst(j) * hru_fr(j)
 
       !! subbasin averages: sub-daily water for URBAN MODELING
         if (ievent>0) then
@@ -350,6 +355,11 @@
         sub_yorgp(sb) = sub_yorgp(sb) + sedorgp(j) * hru_fr(j)
         sub_sedpa(sb) = sub_sedpa(sb) + sedminpa(j) * hru_fr(j)
         sub_sedps(sb) = sub_sedps(sb) + sedminps(j) * hru_fr(j)
+        
+        !check it
+        Nin(sb) = Nin(sb) + percn(j) * hru_fr(j)
+        Nout(sb) = sub_gwno3(sb)
+        Nstore(sb) = Nstore(sb) + shallst_n(j) * hru_fr(j)
 
       !! subbasin averages: pesticides
         if (irtpest > 0) then
@@ -691,6 +701,6 @@
 !! end of day calculations
       tmpavp(j) = 0.
       tmpavp(j) = tmpav(j)
-      
+
       return   
       end

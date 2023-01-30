@@ -95,6 +95,11 @@
       pdvab(23) = sub_tileq(sb)      !! tile flow  jane f.
       pdvab(24) = sub_vaptile(sb)    !! phos due to crack flow
 
+      if ((iprint==1.or.iprint==3) .and. curyr > nyskip) then
+         write(999, '(6f10.3)') Nin(sb), Nout(sb), Nstore(sb), 
+     &    aq_in(sb), aq_out(sb), aqstore(sb)
+       end if
+      
 
       if (ipdvab(1) > 0) then
         do ii = 1, itotb
@@ -131,4 +136,6 @@
  1000 format ('BIGSUB',i5,1x,i8,1x,i4,e10.5,18e10.3,1x,e10.5,5e10.3)
  1001 format('BIGSUB',i5,1x,i8,1x,i2,1x,i2,1x,i4,1x,e10.5,18e10.3,1x,   
      &  e10.5, 5e10.3)
+      
+      
       end 

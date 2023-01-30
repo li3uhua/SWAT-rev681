@@ -80,6 +80,9 @@
       
       !call sw_init
 
+      ! create output variable file
+      open(999, file = "aquiferIO.txt")
+      
       !! convert integer to string for output.mgt file
       subnum = ""
       hruno = ""

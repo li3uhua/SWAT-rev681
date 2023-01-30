@@ -249,6 +249,13 @@
 	sub_rspc_d =0.
       !!add by zhang
       !!==========================
+
+      Nin = 0.
+      aq_in = 0.
+      Nout = 0.
+      aq_out = 0.
+      Nstore = 0.
+      aqstore = 0.
 	
       return
       end
