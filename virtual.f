@@ -292,7 +292,8 @@
         !check it
         aq_in(sb) = sub_sep(sb)
         aq_out(sb) = sub_gwq(sb) + sub_gwq_d(sb)
-        aqstore(sb) = aqstore(sb) + shallst(j) * hru_fr(j)
+        aqstore(sb) = aqstore(sb) + shallst(j) * hru_fr(j) + 
+     &                deepst(j) * hru_fr(j)
 
       !! subbasin averages: sub-daily water for URBAN MODELING
         if (ievent>0) then
