@@ -289,6 +289,11 @@
         sub_latq(sb) = sub_latq(sb) + latq(j) * hru_fr(j)
         sub_subp_dt(sb,:) = sub_subp_dt(sb,:) + rainsub(j,:) * hru_fr(j) !!urban modeling by J.Jeong
         
+        !check it
+        aq_in(sb) = sub_sep(sb)
+        aq_out(sb) = sub_gwq(sb) + sub_gwq_d(sb)
+        aqstore(sb) = aqstore(sb) + shallst(j) * hru_fr(j)
+
         !! SAS variable aggregation in subbasin level (water)
         sas_qin(sb) = sas_qin(sb) + sas_qin_hru(j) * hru_fr(j)
         sas_qout(sb) = sas_qout(sb) + sas_qout_hru(j) * hru_fr(j)
@@ -355,6 +360,11 @@
         sub_sedpa(sb) = sub_sedpa(sb) + sedminpa(j) * hru_fr(j)
         sub_sedps(sb) = sub_sedps(sb) + sedminps(j) * hru_fr(j)
 
+      !check it
+        Nin(sb) = Nin(sb) + percn(j) * hru_fr(j)
+        Nout(sb) = sub_gwno3(sb)
+        Nstore(sb) = Nstore(sb) + shallst_n(j) * hru_fr(j)
+        
       !! SAS variable aggregation in subbasin level (nitrogen)
         sas_cqin(sb) = sas_cqin(sb) + sas_cqin_hru(j) * hru_fr(j) * sas_qin_hru(j)
 

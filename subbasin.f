@@ -490,14 +490,14 @@
      &                     sas_out(isas)%subNstore,
      &                     sas_out(isas)%age_rank_discharge)
       
-     ! SAS output variables
+      ! SAS output variables
       write(990, '(2i7,4f10.3)') sas_out(isas)%median_tt, sas_out(isas)%median_rt,
      & sas_out(isas)%mean_rt, sas_out(isas)%mean_tt, 
      & sas_out(isas)%denitri_amount, sas_out(isas)%subNstore
 
-     ! SAS c & q variables
-      write(991,'(i5,5f10.3)') curyr, sas_qin(isas), sas_cqin(isas), 
-     & sas_qout(isas), sas_cqout(isas),sum(sas_out(isas)%age_rank_discharge)
+      ! SAS c & q variables
+      write(991,'(i5,4f10.3)') curyr, sas_qin(isas), sas_cqin(isas), 
+     & sas_qout(isas), sas_cqout(isas)
       
       ! update subbasin nitrogen output (convert mg/L back to kg/ha)
       sub_gwno3(isas) = sub_gwno3(isas) + sas_cqout(isas)*sas_qout(isas)/100.0

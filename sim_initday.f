@@ -250,6 +250,13 @@
       !!add by zhang
       !!==========================
 	
+      Nin = 0.
+      aq_in = 0.
+      Nout = 0.
+      aq_out = 0.
+      Nstore = 0.
+      aqstore = 0.
+
 !! set initial values for SAS
       !initial values for fluxes
       sas_qin_hru(:) = 0.0

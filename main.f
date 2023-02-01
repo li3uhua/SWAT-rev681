@@ -87,6 +87,7 @@
       open(995, file = "outmindeni.val")  ! n denitrification and mineralization
       open(990, file = "outSAS.val")      ! SAS output variables
       open(991, file = "inSAS.val")       ! SAS input variables
+      open(992, file = "aquiferIO.txt")   ! output aquifer IO
       
       do i = 1, msub
           
