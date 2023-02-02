@@ -281,19 +281,19 @@
         sub_etday(sb) = sub_etday(sb) + etday * hru_fr(j)
         sub_sumfc(sb) = sub_sumfc(sb) + sol_sumfc(j) * hru_fr(j)
         sub_sw(sb) = sub_sw(sb) + sol_sw(j) * hru_fr(j)
-        sub_sep(sb) = sub_sep(sb) + sepbtm(j) * hru_fr(j)
+        sub_sep(sb) = sub_sep(sb) + sepbtm(j) * hru_fr(j) ! aquifer qin
         sub_qd(sb) = sub_qd(sb) + qday * hru_fr(j)
-        sub_gwq(sb) = sub_gwq(sb) + gw_q(j) * hru_fr(j)
-        sub_gwq_d(sb) = sub_gwq_d(sb) + gw_qdeep(j) * hru_fr(j)
+        sub_gwq(sb) = sub_gwq(sb) + gw_q(j) * hru_fr(j)   ! shallow aquifer qout
+        sub_gwq_d(sb) = sub_gwq_d(sb) + gw_qdeep(j) * hru_fr(j) ! deep aquifer qout
         sub_wyld(sb) = sub_wyld(sb) + qdr(j) * hru_fr(j)
         sub_latq(sb) = sub_latq(sb) + latq(j) * hru_fr(j)
         sub_subp_dt(sb,:) = sub_subp_dt(sb,:) + rainsub(j,:) * hru_fr(j) !!urban modeling by J.Jeong
         
         !check it
-        aq_in(sb) = sub_sep(sb)
-        aq_out(sb) = sub_gwq(sb) + sub_gwq_d(sb)
-        aqstore(sb) = aqstore(sb) + shallst(j) * hru_fr(j) + 
-     &                deepst(j) * hru_fr(j)
+        aq_sh(sb) = aq_sh(sb) + shallst(j) * hru_fr(j)
+        aq_d(sb) = aq_d(sb) + deepst(j) * hru_fr(j)
+        aq_store(sb) = aq_store(sb) + (shallst(j)+gw_q(j)+revapday+gwseep) *
+     &                 hru_fr(j)
 
       !! subbasin averages: sub-daily water for URBAN MODELING
         if (ievent>0) then
@@ -349,7 +349,7 @@
  !       sub_tileq(sb) = sub_tileq(sb) + tileq(j) * hru_fr(j)      !! jane f
         sub_tileq(sb) = sub_tileq(sb) + qtile * hru_fr(j)          !! jane f
         sub_vaptile(sb) = sub_vaptile(sb) + vap_tile * hru_fr(j)   !! jane f
-        sub_gwno3(sb) = sub_gwno3(sb) + no3gw(j) * hru_fr(j) 
+        sub_gwno3(sb) = sub_gwno3(sb) + no3gw(j) * hru_fr(j)  ! N out
         sub_solp(sb) = sub_solp(sb) + surqsolp(j) * hru_fr(j)
         sub_gwsolp(sb) = sub_gwsolp(sb) + minpgw(j) * hru_fr(j)
         sub_yorgn(sb) = sub_yorgn(sb) + sedorgn(j) * hru_fr(j)
@@ -359,8 +359,14 @@
         
         !check it
         Nin(sb) = Nin(sb) + percn(j) * hru_fr(j)
-        Nout(sb) = sub_gwno3(sb)
         Nstore(sb) = Nstore(sb) + shallst_n(j) * hru_fr(j)
+        
+        if (gw_q(j)+gw_qdeep(j) > 1e-6) then
+          c_out(sb) = c_out(sb) + (no3gw(j)/(gw_q(j)+gw_qdeep(j))*100) * hru_fr(j)
+          
+        else
+          c_out(sb) = c_out(sb)
+        end if
 
       !! subbasin averages: pesticides
         if (irtpest > 0) then

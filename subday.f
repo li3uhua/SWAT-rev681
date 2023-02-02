@@ -96,8 +96,9 @@
       pdvab(24) = sub_vaptile(sb)    !! phos due to crack flow
 
       if ((iprint==1.or.iprint==3) .and. curyr > nyskip) then
-         write(999, '(6f10.3)') Nin(sb), Nout(sb), Nstore(sb), 
-     &    aq_in(sb), aq_out(sb), aqstore(sb)
+         write(999, '(10f10.3)') sub_sep(sb), sub_gwq(sb), sub_gwq_d(sb), 
+     &    aq_sh(sb), aq_d(sb), aq_store(sb),
+     &    Nin(sb), sub_gwno3(sb), Nstore(sb), c_out(sb)
        end if
       
 

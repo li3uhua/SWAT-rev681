@@ -250,12 +250,13 @@
       !!add by zhang
       !!==========================
 
+     
+      aq_sh = 0.
+      aq_d = 0.
+      aq_store = 0.
       Nin = 0.
-      aq_in = 0.
-      Nout = 0.
-      aq_out = 0.
       Nstore = 0.
-      aqstore = 0.
+      c_out = 0.
 	
       return
       end

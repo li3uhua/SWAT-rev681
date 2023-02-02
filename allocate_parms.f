@@ -61,12 +61,13 @@
       motot = 600             !! (50 years limit)
       
 !! allocate added variables
-      allocate(aq_in(msub))
+      allocate(aq_sh(msub))
+      allocate(aq_d(msub))
+      allocate(aq_store(msub))
+
       allocate(Nin(msub))
-      allocate(aq_out(msub))
-      allocate(Nout(msub))
       allocate(Nstore(msub))
-      allocate(aqstore(msub))
+      allocate(c_out(msub))
 
       allocate (surlag(mhru))
       allocate (cdn(mhru))

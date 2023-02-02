@@ -3,12 +3,12 @@
       real*8 :: prf_bsn
       
 !! added variables
-      real*8, dimension (:), allocatable :: aq_in     !inflow to the aquifers
-      real*8, dimension (:), allocatable :: Nin       !concentration in qin
-      real*8, dimension (:), allocatable :: aq_out    !outflow out of the aquifers
-      real*8, dimension (:), allocatable :: Nout      !concentration in qout    
-      real*8, dimension (:), allocatable :: Nstore    !nitrate store within the aquifers  
-      real*8, dimension (:), allocatable :: aqstore   !water store within the aquifers
+      real*8, dimension (:), allocatable :: aq_sh     !shallow aquifer storage
+      real*8, dimension (:), allocatable :: aq_d      !deep aquifer storage
+      real*8, dimension (:), allocatable :: aq_store  !aquifer storage
+      real*8, dimension (:), allocatable :: Nin       !nitrate leached into aquifer
+      real*8, dimension (:), allocatable :: Nstore    !nitrate store within the aquifers
+      real*8, dimension (:), allocatable :: c_out     !output nitrate concentration
 
 !!    srin - co2 (EPA)
       real*8 :: co2_x2, co2_x
