@@ -112,6 +112,7 @@
 
 !! subtract nitrate losses from the shallow aquifer
       shallst_n(j) = shallst_n(j) - no3gw(j) - revapn - gwseepn
+      Nsink_hru(j) = no3gw(j) + revapn + gwseepn + shallst_n(j) * (1-gw_nloss(j))
       shallst_n(j) = dmax1 (0., shallst_n(j))
 
 !! compute nitrate losses in the groundwater

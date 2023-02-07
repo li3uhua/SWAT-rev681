@@ -9,6 +9,8 @@
       real*8, dimension (:), allocatable :: Nin       !nitrate leached into aquifer
       real*8, dimension (:), allocatable :: Nstore    !nitrate store within the aquifers
       real*8, dimension (:), allocatable :: c_out     !output nitrate concentration
+      real*8, dimension (:), allocatable :: Nsink     !nitrate sinks
+      real*8, dimension (:), allocatable :: Nsink_hru     !nitrate sinks
 
 !!    srin - co2 (EPA)
       real*8 :: co2_x2, co2_x

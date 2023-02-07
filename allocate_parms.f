@@ -68,6 +68,8 @@
       allocate(Nin(msub))
       allocate(Nstore(msub))
       allocate(c_out(msub))
+      allocate(Nsink(msub))
+      allocate(Nsink_hru(mhru))
 
       allocate (surlag(mhru))
       allocate (cdn(mhru))

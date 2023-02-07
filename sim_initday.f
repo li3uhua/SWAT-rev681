@@ -257,6 +257,8 @@
       Nin = 0.
       Nstore = 0.
       c_out = 0.
+      Nsink = 0.
+      Nsink_hru = 0.
 	
       return
       end

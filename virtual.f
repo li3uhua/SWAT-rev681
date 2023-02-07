@@ -360,6 +360,7 @@
         !check it
         Nin(sb) = Nin(sb) + percn(j) * hru_fr(j)
         Nstore(sb) = Nstore(sb) + shallst_n(j) * hru_fr(j)
+        Nsink(sb) = Nsink(sb) + Nsink_hru(j) *hru_fr(j)
         
         if (gw_q(j)+gw_qdeep(j) > 1e-6) then
           c_out(sb) = c_out(sb) + (no3gw(j)/(gw_q(j)+gw_qdeep(j))*100) * hru_fr(j)
