@@ -1,7 +1,25 @@
       module parm
+      
+      use mo_sas_global_variables
+      
       integer icalen
       real*8 :: prf_bsn
-            
+
+!=====SAS=====
+      ! subbasin level
+      real*8, dimension (:), allocatable :: sas_qin     !inflow to the SAS compartment
+      real*8, dimension (:), allocatable :: sas_cqin    !concentration in sas_qin
+      real*8, dimension (:), allocatable :: sas_qout    !outflow out of the SAS compartment
+      real*8, dimension (:), allocatable :: sas_cqout   !concentration in sas_qout    
+
+      ! hru level
+      real*8, dimension (:), allocatable :: sas_qin_hru     !inflow to the SAS compartment at the hru level
+      real*8, dimension (:), allocatable :: sas_cqin_hru    !concentration in sas_qin at the hru level
+      real*8, dimension (:), allocatable :: sas_qout_hru    !outflow out of the SAS compartment at the hru level
+
+      real*8 :: max_old_fraction = 0.1   ! adjust old water fraction
+!=====SAS=====
+
 !!    srin - co2 (EPA)
       real*8 :: co2_x2, co2_x
            

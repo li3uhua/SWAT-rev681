@@ -60,6 +60,20 @@
       mstdo = 113
       motot = 600             !! (50 years limit)
       
+!=====SAS=====
+      !! allocate sas variables
+      allocate(sas_qin_hru(mhru))
+      allocate(sas_cqin_hru(mhru))
+      allocate(sas_qout_hru(mhru))
+
+      allocate(sas_qin(msub))
+      allocate(sas_cqin(msub))
+      allocate(sas_qout(msub))
+      allocate(sas_cqout(msub))
+
+      allocate(sas_sub(msub))
+      allocate(sas_out(msub))
+!=====SAS=====
       allocate (surlag(mhru))
       allocate (cdn(mhru))
       allocate (cmn(mhru))

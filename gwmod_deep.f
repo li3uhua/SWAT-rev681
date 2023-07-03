@@ -56,6 +56,10 @@
  !       gw_qdeep(j) = 0.
  !     end if
 
+!=====SAS=====
+      !! add gw_qdeep to outflow out of the SAS compartment
+      sas_qout_hru(j) = sas_qout_hru(j) + gw_qdeep(j)
+!=====SAS=====
 
 !! remove ground water flow from deep aquifer storage
       deepst(j) = deepst(j) - gw_qdeep(j)

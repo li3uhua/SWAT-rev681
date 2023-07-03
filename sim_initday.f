@@ -250,5 +250,17 @@
       !!add by zhang
       !!==========================
 	
+!=====SAS=====
+      ! set SAS initial values
+      ! for fluxes
+      sas_qin_hru(:) = 0.0
+      sas_qout_hru(:) = 0.0
+      sas_qin(:) = 0.0
+      sas_qout(:) = 0.0
+      ! for concentrations
+      sas_cqin(:) = 0.0
+      sas_cqout(:) = 0.0 
+      sas_cqin_hru(:) = 0.0     
+!=====SAS=====
       return
       end

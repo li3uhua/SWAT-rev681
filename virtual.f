@@ -259,6 +259,8 @@
 !!    ~ ~ ~ ~ ~ ~ END SPECIFICATIONS ~ ~ ~ ~ ~ ~
 
       use parm
+            
+      use mo_sas_master_equation,     only:master_equation ! master_equation is needed
 
       integer :: j, sb, kk, ii
       real*8 :: cnv, sub_ha, wtmp, baseflw, bf_fr,hr
@@ -289,6 +291,11 @@
         sub_latq(sb) = sub_latq(sb) + latq(j) * hru_fr(j)
         sub_subp_dt(sb,:) = sub_subp_dt(sb,:) + rainsub(j,:) * hru_fr(j) !!urban modeling by J.Jeong
 
+!=====SAS=====
+        !! SAS variable aggregation in subbasin level (water)
+        sas_qin(sb) = sas_qin(sb) + sas_qin_hru(j) * hru_fr(j)
+        sas_qout(sb) = sas_qout(sb) + sas_qout_hru(j) * hru_fr(j)
+!=====SAS=====
       !! subbasin averages: sub-daily water for URBAN MODELING
         if (ievent>0) then
         do ii = 1, nstep  !! step Oct. 18, 2007
@@ -343,13 +350,17 @@
  !       sub_tileq(sb) = sub_tileq(sb) + tileq(j) * hru_fr(j)      !! jane f
         sub_tileq(sb) = sub_tileq(sb) + qtile * hru_fr(j)          !! jane f
         sub_vaptile(sb) = sub_vaptile(sb) + vap_tile * hru_fr(j)   !! jane f
-        sub_gwno3(sb) = sub_gwno3(sb) + no3gw(j) * hru_fr(j) 
+        !sub_gwno3(sb) = sub_gwno3(sb) + no3gw(j) * hru_fr(j)  !comment out original no3 calculation
         sub_solp(sb) = sub_solp(sb) + surqsolp(j) * hru_fr(j)
         sub_gwsolp(sb) = sub_gwsolp(sb) + minpgw(j) * hru_fr(j)
         sub_yorgn(sb) = sub_yorgn(sb) + sedorgn(j) * hru_fr(j)
         sub_yorgp(sb) = sub_yorgp(sb) + sedorgp(j) * hru_fr(j)
         sub_sedpa(sb) = sub_sedpa(sb) + sedminpa(j) * hru_fr(j)
         sub_sedps(sb) = sub_sedps(sb) + sedminps(j) * hru_fr(j)
+
+        
+      !! SAS variable aggregation in subbasin level (nitrogen)
+        sas_cqin(sb) = sas_cqin(sb) + sas_cqin_hru(j) * hru_fr(j) * sas_qin_hru(j)
 
       !! subbasin averages: pesticides
         if (irtpest > 0) then
@@ -435,6 +446,38 @@
             sub_latq(sb) = 0.0
             sub_tileq(sb) = 0.0
         end if
+!=====SAS=====
+        if (sas_qin(sb) < 0.01) then
+          sas_cqin(sb) = 0.0
+        else
+          sas_cqin(sb) = sas_cqin(sb) / sas_qin(sb)
+        endif
+
+        ! call master_equ function
+        call master_equation(sas_sub(sb), 
+     &                     sas_qin(sb), 
+     &                     sas_cqin(sb),
+     &                     sas_qout(sb),
+     &                     sas_cqout(sb),
+     &                     100000,                    !maximum age (days)
+     &                     max_old_fraction,          !minimum old water fraction
+     &                     2,                         !sas function = beta(ka,b)
+     &                     sas_out(sb)%median_tt,
+     &                     sas_out(sb)%median_rt,
+     &                     sas_out(sb)%mean_rt,
+     &                     sas_out(sb)%mean_tt,
+     &                     sas_out(sb)%denitri_amount,
+     &                     sas_out(sb)%subNstore,
+     &                     sas_out(sb)%age_rank_discharge)
+       
+         ! SAS output variables
+        write(990, '(2i7,4f10.3)') sas_out(sb)%median_tt, sas_out(sb)%median_rt,
+     & sas_out(sb)%mean_rt, sas_out(sb)%mean_tt, 
+     & sas_out(sb)%denitri_amount, sas_out(sb)%subNstore
+        
+        ! update subbasin nitrogen output (convert mg/L back to kg/ha)
+      sub_gwno3(sb) = sub_gwno3(sb) + sas_cqout(sb)*sas_qout(sb)/100.0
+!=====SAS=====
 
 !        sub_subp(sb) = sub_subp(sb) / sub_fr(sb)
 !        sub_pet(sb) = sub_pet(sb) / sub_fr(sb)

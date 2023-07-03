@@ -87,6 +87,11 @@
       twlpnd(j) = 0.
       twlwet(j) = 0.
       
+!=====SAS=====
+      !! Cacluate inflow to the SAS compartment (NOTE: set sas_qin_hru = 0 at the starting of every time step)
+      sas_qin_hru(j) = sas_qin_hru(j) + sepbtm(j) + gwq_ru(j) + rchrg_karst
+!=====SAS=====
+
 !! compute shallow aquifer level for current day, assumes karst losses 
 !! infiltrate at the same speed as what goes through the soil profile.
       rchrg(j) = 0.
@@ -137,6 +142,9 @@
        else
         gw_q(j) = 0.
       end if
+
+!! outflow out of the SAS compartment (NOTE: set sas_qin_hru = 0 at the starting of every time step)
+      sas_qout_hru(j) = sas_qout_hru(j) + gw_q(j)
 
       return
       end
