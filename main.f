@@ -83,6 +83,9 @@
 !=====SAS=====
       ! read SAS parameters
       open(999, file = "sas_param.par")
+      open(992, file = "aquiferIO.txt")
+      open(990, file = "outSAS.val")      ! SAS output variables
+      open(991, file = "inSAS.val")       ! SAS input variables
 
       do i = 1, msub
         allocate(sas_sub(i)%stor_age(1))

@@ -5,7 +5,15 @@
       integer icalen
       real*8 :: prf_bsn
 
-!=====SAS=====
+      !! added variables
+      real*8, dimension (:), allocatable :: aq_in        ! inflow to the aquifers
+      real*8, dimension (:), allocatable :: Nin         !concentration in qin
+      real*8, dimension (:), allocatable :: aq_out      !outflow out of the aquifers
+      real*8, dimension (:), allocatable :: Nout        !concentration in qout    
+      real*8, dimension (:), allocatable :: Nstore      !nitrate store within the aquifers  
+      real*8, dimension (:), allocatable :: aqstore     !water store within the aquifers
+      
+      !=====SAS=====
       ! subbasin level
       real*8, dimension (:), allocatable :: sas_qin     !inflow to the SAS compartment
       real*8, dimension (:), allocatable :: sas_cqin    !concentration in sas_qin

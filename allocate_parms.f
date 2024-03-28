@@ -61,6 +61,14 @@
       motot = 600             !! (50 years limit)
       
 !=====SAS=====
+      !! allocate added variables
+      allocate(aq_in(msub))
+      allocate(Nin(msub))
+      allocate(aq_out(msub))
+      allocate(Nout(msub))
+      allocate(Nstore(msub))
+      allocate(aqstore(msub))
+      
       !! allocate sas variables
       allocate(sas_qin_hru(mhru))
       allocate(sas_cqin_hru(mhru))

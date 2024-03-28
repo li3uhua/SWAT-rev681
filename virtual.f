@@ -290,6 +290,10 @@
         sub_wyld(sb) = sub_wyld(sb) + qdr(j) * hru_fr(j)
         sub_latq(sb) = sub_latq(sb) + latq(j) * hru_fr(j)
         sub_subp_dt(sb,:) = sub_subp_dt(sb,:) + rainsub(j,:) * hru_fr(j) !!urban modeling by J.Jeong
+        !! aqIO, check it
+        aq_in(sb) = sub_sep(sb)
+        aq_out(sb) = sub_gwq(sb) + sub_gwq_d(sb)
+        aqstore(sb) = aqstore(sb) + shallst(j) * hru_fr(j)
 
 !=====SAS=====
         !! SAS variable aggregation in subbasin level (water)
@@ -358,6 +362,10 @@
         sub_sedpa(sb) = sub_sedpa(sb) + sedminpa(j) * hru_fr(j)
         sub_sedps(sb) = sub_sedps(sb) + sedminps(j) * hru_fr(j)
 
+        !! aqIO, check it
+        Nin(sb) = Nin(sb) + percn(j) * hru_fr(j)
+        
+        Nstore(sb) = Nstore(sb) + shallst_n(j) * hru_fr(j)
         
       !! SAS variable aggregation in subbasin level (nitrogen)
         sas_cqin(sb) = sas_cqin(sb) + sas_cqin_hru(j) * hru_fr(j) * sas_qin_hru(j)
@@ -471,12 +479,17 @@
      &                     sas_out(sb)%age_rank_discharge)
        
          ! SAS output variables
-        write(990, '(2i7,4f10.3)') sas_out(sb)%median_tt, sas_out(sb)%median_rt,
+        write(990, '(3i7,4f10.3)') sb, sas_out(sb)%median_tt, sas_out(sb)%median_rt,
      & sas_out(sb)%mean_rt, sas_out(sb)%mean_tt, 
      & sas_out(sb)%denitri_amount, sas_out(sb)%subNstore
         
+        ! SAS c& q variables
+        write(991,'(2i5,4f10.3)') curyr, sb, sas_qin(sb), sas_cqin(sb), 
+     & sas_qout(sb), sas_cqout(sb)
+
         ! update subbasin nitrogen output (convert mg/L back to kg/ha)
       sub_gwno3(sb) = sub_gwno3(sb) + sas_cqout(sb)*sas_qout(sb)/100.0
+      Nout(sb) = sub_gwno3(sb)
 !=====SAS=====
 
 !        sub_subp(sb) = sub_subp(sb) / sub_fr(sb)
